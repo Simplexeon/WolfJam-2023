@@ -5,6 +5,12 @@ extends CharacterBody2D
 @export var KillScore : int;
 @export var TimeScore : int;
 @export var ScoreDisplay : RichTextLabel;
+@export var Crosshair : Sprite2D;
+@export var HP : int : set = set_hp;
+func set_hp(new_value : int):
+	HP = max(new_value, 0);
+	
+
 
 
 # Movement directions
