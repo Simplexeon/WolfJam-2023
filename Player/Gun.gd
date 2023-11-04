@@ -15,6 +15,7 @@ extends Node2D
 @onready var muzzle_flash_timer : Timer = $MuzzleFlashTimer;
 @onready var rifle_cd_timer : Timer = $RifleCDTimer;
 @onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer;
+@onready var reload_noise : AudioStreamPlayer2D = $ReloadSound;
 var root_node : Node2D;
 
 var bullet_scene : PackedScene = preload("res://Player/Bullet.tscn");
@@ -58,6 +59,7 @@ func shoot(mouse_pos : Vector2) -> void:
 	audio_player.play();
 	
 	# Start cooldown
+	reload_noise.play();
 	cooldown_timer.start();
 
 

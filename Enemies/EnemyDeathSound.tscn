@@ -25,8 +25,8 @@ stream_4/weight = 1.0
 [node name="EnemyDeathSound" type="AudioStreamPlayer2D"]
 stream = SubResource("AudioStreamRandomizer_pryda")
 autoplay = true
-max_distance = 400.0
-attenuation = 5.65685
+max_distance = 600.0
+attenuation = 1.46409
 script = ExtResource("6_cqckb")
 
 [connection signal="finished" from="." to="." method="_on_finished"]
