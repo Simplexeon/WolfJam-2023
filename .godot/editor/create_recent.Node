@@ -1,7 +1,9 @@
+LightOccluder2D
+PointLight2D
+Node2D
+CollisionShape2D
+Sprite2D
+CharacterBody2D
 Camera2D
 TileMap
 CanvasModulate
-Node2D
-Sprite2D
-CollisionShape2D
-CharacterBody2D

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://g33or5mpkwtf"]
+
+[ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_elbty"]
+[ext_resource type="Texture2D" uid="uid://b8yaeuw64wagc" path="res://Art/enemies/VampireA.png" id="2_d0y46"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jt2rq"]
+polygon = PackedVector2Array(0, 0, 6, 0, 6, 6, 10, 6, 10, 0, 16, 0, 16, 14, 14, 14, 14, 16, 2, 16, 2, 14, 0, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7xnld"]
+radius = 9.0
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_elbty")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(-8, -8)
+occluder = SubResource("OccluderPolygon2D_jt2rq")
+sdf_collision = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_d0y46")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7xnld")
