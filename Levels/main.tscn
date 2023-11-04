@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dprabjvil2cku"]
+[gd_scene load_steps=9 format=3 uid="uid://dprabjvil2cku"]
 
 [ext_resource type="Script" path="res://Levels/main.gd" id="1_egfi3"]
 [ext_resource type="Script" path="res://Levels/Camera2D.gd" id="2_lh26t"]
@@ -6,6 +6,12 @@
 [ext_resource type="Script" path="res://Levels/EnemySpawner.gd" id="3_hjepc"]
 [ext_resource type="PackedScene" uid="uid://brjpsfcowvc7i" path="res://Player/player_character.tscn" id="4_h0qhc"]
 [ext_resource type="PackedScene" uid="uid://mhpso4iyhojp" path="res://Objects/pyre.tscn" id="7_xiprn"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wc41l"]
+light_mode = 1
+
+[sub_resource type="SystemFont" id="SystemFont_dtk3u"]
+font_names = PackedStringArray("QuinqueFive")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_egfi3")
@@ -15,18 +21,13 @@ script = ExtResource("1_egfi3")
 [node name="CanvasModulate" type="CanvasModulate" parent="ShadingController"]
 color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 
-[node name="PlayerCharacter" parent="." instance=ExtResource("4_h0qhc")]
+[node name="PlayerCharacter" parent="." node_paths=PackedStringArray("ScoreDisplay") instance=ExtResource("4_h0qhc")]
 z_index = 1
 position = Vector2(242, 311)
 Speed = 130.0
 KillScore = 100
 TimeScore = 10
-
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-position_smoothing_speed = 50.0
-script = ExtResource("2_lh26t")
-player = NodePath("../PlayerCharacter")
-smoothing = 0.9
+ScoreDisplay = NodePath("../Camera2D/Score")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("3_hjepc")
@@ -84,3 +85,41 @@ z_index = 1
 position = Vector2(294, 387)
 
 [node name="TileMap" parent="." instance=ExtResource("2_v2rwh")]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position_smoothing_speed = 50.0
+script = ExtResource("2_lh26t")
+player = NodePath("../PlayerCharacter")
+smoothing = 0.9
+
+[node name="Score" type="RichTextLabel" parent="Camera2D"]
+material = SubResource("CanvasItemMaterial_wc41l")
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = 107.0
+offset_right = -24.0
+offset_bottom = 123.0
+grow_vertical = 0
+theme_override_colors/default_color = Color(1, 0.509804, 0.454902, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_dtk3u")
+theme_override_font_sizes/normal_font_size = 10
+text = "100"
+
+[node name="Score" type="RichTextLabel" parent="Camera2D/Score"]
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_wc41l")
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -15.0
+offset_right = 97.0
+offset_bottom = 1.0
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.835294, 0.235294, 0.415686, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_dtk3u")
+theme_override_font_sizes/normal_font_size = 10
+text = "100"

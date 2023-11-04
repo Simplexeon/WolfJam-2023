@@ -58,7 +58,7 @@ radius = 20.2
 max_neighbors = 20
 
 [node name="NavigationTimer" type="Timer" parent="Navigation"]
-wait_time = 0.6
+wait_time = 1.5
 
 [node name="DamageLight" type="PointLight2D" parent="."]
 visible = false

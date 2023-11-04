@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var Speed : float;
 @export var KillScore : int;
 @export var TimeScore : int;
+@export var ScoreDisplay : RichTextLabel;
 
 
 # Movement directions
@@ -21,7 +22,12 @@ var mouse_pos : Vector2 = Vector2.ZERO;
 
 
 # Scoring
-var score : int = 0;
+var score : int = 0 : set = set_state;
+func set_state(value):
+	score = value;
+	ScoreDisplay.text = str(value);
+	ScoreDisplay.get_child(0).text = str(value);
+
 var pyre_count : int = 0;
 
 
