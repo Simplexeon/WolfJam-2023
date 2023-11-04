@@ -4,3 +4,8 @@ res://Levels/main.tscn
 res://Levels/Camera2D.gd
 res://Enemies/enemy.tscn
 res://Enemies/enemy.gd
+res://Player/Gun.gd
+res://Player/Bullet.tscn
+res://Autoloads/create_node.gd
+res://Levels/main.gd
+res://Player/Bullet.gd
