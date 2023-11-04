@@ -21,10 +21,13 @@ var next_wave_points : int = 0;
 # Files
 var enemy_file : PackedScene = preload("res://Enemies/enemy.tscn");
 var big_enemy_file : PackedScene = preload("res://Enemies/BigEnemy.tscn");
+var boss_file : PackedScene = preload("res://Enemies/Boss.tscn");
 var navigation_map : RID;
 
 # Components
 var root_node : Node2D;
+
+var boss_spawned : bool = false;
 
 # Enemy Types
 enum EnemyType {
@@ -48,8 +51,15 @@ func _game_ready(new_player : CharacterBody2D, new_tilemap : TileMap) -> void:
 func _physics_process(delta: float) -> void:
 	points += points_per_sec * delta;
 	points_per_sec = points_per_sec * (1 + point_growth * delta);
-	wave_points_maximum += (player.score / 1000) * delta;
+	wave_points_maximum += (player.score / 5000) * delta;
 	calculate_spawn();
+	
+	if(player.score >= 25000 and !boss_spawned):
+		var boss_inst : Area2D = boss_file.instantiate();
+		root_node.add_child(boss_inst);
+		boss_inst.initialize(player);
+		boss_inst.global_position = Vector2(562, -420);
+		boss_spawned = true;
 
 
 func create_enemy(type : EnemyType) -> void:

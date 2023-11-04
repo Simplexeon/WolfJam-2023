@@ -14,6 +14,7 @@ config/name="WolfJam 2023"
 run/main_scene="res://Levels/TitleScreen.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://Art/two freshmen in a trench coat.png"
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
@@ -65,6 +66,7 @@ shoot={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
 shader_compiler/shader_cache/compress=false
 shader_compiler/shader_cache/use_zstd_compression=false
 textures/light_projectors/filter=0

@@ -46,6 +46,11 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = move_dir * speed;
 	move_and_slide()
+	
+	if(global_position.x < -40 or global_position.x > 1782):
+		queue_free();
+	if(global_position.y < -20 or global_position.y > 980):
+		queue_free();
 
 
 func damage() -> void:

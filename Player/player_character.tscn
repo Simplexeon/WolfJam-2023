@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://brjpsfcowvc7i"]
+[gd_scene load_steps=15 format=3 uid="uid://brjpsfcowvc7i"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_jk8fe"]
 [ext_resource type="PackedScene" uid="uid://qiaarkcs1nih" path="res://Player/gun.tscn" id="2_87qi1"]
 [ext_resource type="Texture2D" uid="uid://bfdklyykf7c0t" path="res://Art/player/player.png" id="3_mldyy"]
 [ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="4_ntn0w"]
 [ext_resource type="AudioStream" uid="uid://cepgcsykah78a" path="res://SFX/Playerwalk.wav" id="5_q7m1m"]
+[ext_resource type="AudioStream" uid="uid://bfh4tilx2h3c" path="res://SFX/playerhurt1.wav" id="6_oevfv"]
+[ext_resource type="AudioStream" uid="uid://fvoj16hvs450" path="res://SFX/playerhurt2.wav" id="7_kb1bx"]
+[ext_resource type="AudioStream" uid="uid://cfvpuuccrsvtn" path="res://SFX/playerhurt4.wav" id="8_2eai0"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kgwk4"]
 blend_mode = 1
@@ -22,6 +25,16 @@ radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_801rc"]
 radius = 9.05539
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_x3p0r"]
+streams_count = 3
+random_pitch = 1.2
+stream_0/stream = ExtResource("6_oevfv")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_kb1bx")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("8_2eai0")
+stream_2/weight = 1.0
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
 material = SubResource("CanvasItemMaterial_kgwk4")
@@ -70,7 +83,13 @@ stream = ExtResource("5_q7m1m")
 volume_db = 10.0
 attenuation = 2.82843
 
+[node name="Hitsounds" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_x3p0r")
+volume_db = 9.0
+pitch_scale = 0.6
+
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="Hitbox" to="." method="_on_hitbox_area_exited"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_invulnerability_timer_timeout"]
