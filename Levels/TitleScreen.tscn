@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwj85ct5v8b13"]
+[gd_scene load_steps=10 format=3 uid="uid://dwj85ct5v8b13"]
 
 [ext_resource type="Texture2D" uid="uid://bvk8k56dnicdo" path="res://Art/Titlescreen.png" id="1_qxcfh"]
 [ext_resource type="FontFile" uid="uid://c785noxdvf55c" path="res://Art/QuinqueFive.ttf" id="2_lak0l"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bjqlvufbfkjek" path="res://Art/start pressed.png" id="4_4gnyq"]
 [ext_resource type="Texture2D" uid="uid://cf1jyqc2w47s6" path="res://Art/starthover.png" id="5_31rvq"]
 [ext_resource type="PackedScene" uid="uid://baiqwo3r26agl" path="res://Objects/crosshair.tscn" id="7_bpc1q"]
+[ext_resource type="Texture2D" uid="uid://btg5opmn8cwne" path="res://Art/Transitions/BlackScreen.png" id="8_ypu8l"]
+[ext_resource type="Script" path="res://Levels/EpillepsyWarning.gd" id="9_822kf"]
 
 [node name="TitleScreen" type="Node2D"]
 
@@ -82,4 +84,51 @@ scroll_active = false
 [node name="Crosshair" parent="." instance=ExtResource("7_bpc1q")]
 frame = 0
 
+[node name="EpillepsyWarning" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 0
+texture = ExtResource("8_ypu8l")
+script = ExtResource("9_822kf")
+
+[node name="Timer" type="Timer" parent="EpillepsyWarning"]
+wait_time = 3.5
+one_shot = true
+autostart = true
+
+[node name="Text" type="RichTextLabel" parent="EpillepsyWarning"]
+offset_top = 86.0
+offset_right = 256.0
+offset_bottom = 170.0
+theme_override_colors/default_color = Color(1, 0.509804, 0.454902, 1)
+theme_override_fonts/normal_font = ExtResource("2_lak0l")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[center]Epilepsy Warning
+This game features
+flashing lights and
+loud noises
+
+Proceed with Caution[/center]"
+scroll_active = false
+
+[node name="Text" type="RichTextLabel" parent="EpillepsyWarning/Text"]
+show_behind_parent = true
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 259.0
+offset_bottom = 85.0
+theme_override_colors/default_color = Color(0.835294, 0.235294, 0.415686, 1)
+theme_override_fonts/normal_font = ExtResource("2_lak0l")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[center]Epilepsy Warning
+This game features
+flashing lights and
+loud noises
+
+Proceed with Caution[/center]"
+scroll_active = false
+
 [connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]
+[connection signal="timeout" from="EpillepsyWarning/Timer" to="EpillepsyWarning" method="_on_timer_timeout"]

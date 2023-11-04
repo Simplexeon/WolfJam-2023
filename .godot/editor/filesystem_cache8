@@ -1,6 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1699131819
-export_presets.cfg::TextFile::-1::1699125618::0::1::::<><>::
+::res://::1699132547
+export_presets.cfg::TextFile::-1::1699131819::0::1::::<><>::
 icon.svg::CompressedTexture2D::1057411483181488038::1699047171::1699047178::1::::<><>::
 README.md::TextFile::-1::1699047222::0::1::::<><>::
 ::res://Art/::1699129551
@@ -51,7 +51,8 @@ Light.png::CompressedTexture2D::5799952769516874418::1699110153::1699110155::1::
 MuzzleFlash.png::CompressedTexture2D::152218233089019441::1699079336::1699079339::1::::<><>::
 PixelLight.png::CompressedTexture2D::5014282384437040101::1699067745::1699067750::1::::<><>::
 Player.png::CompressedTexture2D::6541491306499371359::1699057221::1699057224::1::::<><>::
-::res://Art/Transitions/::1699118154
+::res://Art/Transitions/::1699132651
+BlackScreen.png::CompressedTexture2D::3734242297260506710::1699132651::1699132659::1::::<><>::
 FtoB.tres::CompressedTexture2D::753093499008289068::1699118123::0::1::::<><>::
 FtoC.tres::CompressedTexture2D::178951807551218288::1699118154::0::1::::<><>::
 toBlack.png::CompressedTexture2D::3838065074482445337::1699117657::1699117851::1::::<><>::
@@ -64,17 +65,17 @@ BigEnemy.gd::GDScript::-1::1699129857::0::1::::<>CharacterBody2D<>::
 BigEnemy.tscn::PackedScene::2862463232597737785::1699131731::0::1::::<><>::res://Enemies/BigEnemy.gd<>uid://bmled7ncfbeln::::res://Art/enemies/elknew.png<>uid://cdo7q7ah7wqif::::res://Art/Prototype/PixelLight.png<>res://Enemies/Navigation.gd<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png<>res://Enemies/ElkSounds.gd<>uid://c840gl83kij2::::res://SFX/elksound(spawn).wav<>uid://csg1nj2aiq6gt::::res://SFX/elksounddie.wav
 Boss.gd::GDScript::-1::1699130896::0::1::::<>Area2D<>::
 Boss.tscn::PackedScene::1510363302489576921::1699131731::0::1::::<><>::res://Enemies/Boss.gd<>uid://cdo7q7ah7wqif::::res://Art/Prototype/PixelLight.png<>uid://brp2k8sjga6wv::::res://Art/enemies/sinew god/godarm1.png<>uid://nh5e2q5mw30s::::res://SFX/BossHurt.wav<>res://Enemies/ElkSounds.gd<>uid://cu6u3o2sgr2h5::::res://SFX/bosssound.wav<>uid://cx46l66emx8j8::::res://Art/enemies/sinew god/godarm2.png<>uid://c840gl83kij2::::res://SFX/elksound(spawn).wav<>uid://dk28gj42ncivq::::res://Art/enemies/sinew god/godskull.png<>uid://dmi6x2nn6nnps::::res://Art/enemies/sinew god/godlefthand.png<>uid://csg1nj2aiq6gt::::res://SFX/elksounddie.wav<>uid://468rv4evwh2i::::res://Art/enemies/sinew god/godrighthand.png<>res://Enemies/BossHands.gd<>uid://blhnxpuqfl2ad::::res://SFX/bossbackingchant.wav<>res://Enemies/Chant.gd
+BossDeathYell.gd::GDScript::-1::1699130792::0::1::::<>AudioStreamPlayer2D<>::
+BossDeathYell.tscn::PackedScene::3399861469452300232::1699131731::0::1::::<><>::res://Enemies/BossDeathYell.gd<>uid://c2xpkwqdao0tr::::res://Enemies/bosssound.wav
+BossHands.gd::GDScript::-1::1699128520::0::1::::BossHands<>Area2D<>::
 bosssound.wav::AudioStreamWAV::6716350627154457163::1699128857::1699128858::1::::<><>::
+Chant.gd::GDScript::-1::1699128949::0::1::::<>AudioStreamPlayer2D<>::
 ElkSounds.gd::GDScript::-1::1699111828::0::1::::<>Area2D<>::
 enemy.gd::GDScript::-1::1699129881::0::1::::Enemy<>CharacterBody2D<>::
 enemy.tscn::PackedScene::480661655660771747::1699111104::0::1::::<><>::res://Enemies/enemy.gd<>uid://b8yaeuw64wagc
 EnemyDeathSound.gd::GDScript::-1::1699112077::0::1::::<>AudioStreamPlayer2D<>::
 EnemyDeathSound.tscn::PackedScene::5047605674554815375::1699112081::0::1::::<><>::uid://bwneep564loc
 Navigation.gd::GDScript::-1::1699107582::0::1::::<>Node2D<>::
-BossHands.gd::GDScript::-1::1699128520::0::1::::BossHands<>Area2D<>::
-Chant.gd::GDScript::-1::1699128949::0::1::::<>AudioStreamPlayer2D<>::
-BossDeathYell.tscn::PackedScene::3399861469452300232::1699131731::0::1::::<><>::res://Enemies/BossDeathYell.gd<>uid://c2xpkwqdao0tr::::res://Enemies/bosssound.wav
-BossDeathYell.gd::GDScript::-1::1699130792::0::1::::<>AudioStreamPlayer2D<>::
 ::res://Exports/::1699131860
 ::res://Exports/Ver1.2/::1699125232
 AveInfernum.apple-touch-icon.png::CompressedTexture2D::4673112857932708513::1699124895::1699125232::1::::<><>::
@@ -92,7 +93,7 @@ AveInfernum.png::CompressedTexture2D::2060270850396691261::1699125410::169912549
 AveIncensa.apple-touch-icon.png::CompressedTexture2D::7669662502218389423::1699125621::1699125901::1::::<><>::
 AveIncensa.icon.png::CompressedTexture2D::8773961602638769781::1699125621::1699125901::1::::<><>::
 AveIncensa.png::CompressedTexture2D::8137351301242587911::1699125621::1699125901::1::::<><>::
-::res://Exports/Ver 1.5/::1699131854
+::res://Exports/Ver 1.5/::1699131866
 AveIncensa.apple-touch-icon.png::CompressedTexture2D::656870363591477585::1699131824::1699131866::1::::<><>::
 AveIncensa.icon.png::CompressedTexture2D::5296388879442715482::1699131824::1699131866::1::::<><>::
 AveIncensa.png::CompressedTexture2D::769125725372442915::1699131824::1699131866::1::::<><>::
@@ -103,8 +104,8 @@ EnemySpawner.gd::GDScript::-1::1699131714::0::1::::<>Node2D<>::
 Game Over.gd::GDScript::-1::1699094050::0::1::::<>Node2D<>::
 Game Over.tscn::PackedScene::1538694812314523980::1699126655::0::1::::<><>::res://Levels/Game Over.gd<>res://Levels/ScoreLabel.gd<>uid://cnbodwes3cv46::::res://Art/game over background (1).png<>res://Levels/ReplayButton.gd<>uid://c785noxdvf55c::::res://Art/QuinqueFive.ttf<>uid://b61h2q7ibm8ku::::res://Art/retry clicked.png<>uid://dp86h6qo7sy2g::::res://Art/retry.png<>uid://baiqwo3r26agl::::res://Objects/crosshair.tscn<>uid://kwmuk2ov0cy8::::res://Objects/Transition.tscn
 main.gd::GDScript::-1::1699075857::0::1::::<>Node2D<>::
-ReplayButton.gd::GDScript::-1::1699095767::0::1::::<>TextureButton<>::
 main.tscn::PackedScene::8247191418793001016::1699131782::0::1::::<><>::res://Levels/main.gd<>res://Levels/Camera2D.gd<>uid://ba3rpsvyhb551::::res://Levels/tile_map.tscn<>uid://baiqwo3r26agl::::res://Objects/crosshair.tscn<>res://Levels/EnemySpawner.gd<>uid://brjpsfcowvc7i::::res://Player/player_character.tscn<>uid://c785noxdvf55c::::res://Art/QuinqueFive.ttf<>uid://cur0uu204anox::::res://SFX/wind.wav<>uid://u0h8nh1kx86u::::res://SFX/wind2.wav<>uid://b80xar6ixb5lq::::res://SFX/wind3.wav<>uid://c14toggpuntcs::::res://SFX/wind4.wav<>res://Levels/AudioStreamPlayer.gd<>uid://kwmuk2ov0cy8::::res://Objects/Transition.tscn<>uid://ijhe2w0jsu3g::::res://Objects/megaPyre.tscn
+ReplayButton.gd::GDScript::-1::1699095767::0::1::::<>TextureButton<>::
 ScoreLabel.gd::GDScript::-1::1699091999::0::1::::<>RichTextLabel<>::
 StartButton.gd::GDScript::-1::1699118715::0::1::::<>TextureButton<>::
 tile_map.tscn::PackedScene::2445283215553452998::1699096920::0::1::::<><>::uid://vlh1i6g6c0sm

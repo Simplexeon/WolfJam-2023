@@ -1,6 +1,7 @@
+Timer
+TextureRect
 AudioStreamPlayer2D
 AudioStreamPlayer
-Timer
 CollisionShape2D
 Area2D
 AnimationPlayer
@@ -9,7 +10,6 @@ Sprite2D
 Node2D
 RichTextLabel
 TextureButton
-TextureRect
 Button
 NavigationRegion2D
 SubViewport
