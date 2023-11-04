@@ -28,6 +28,7 @@ var navigation_map : RID;
 var root_node : Node2D;
 
 var boss_spawned : bool = false;
+var ultra_instinct_boss : bool = false;
 
 # Enemy Types
 enum EnemyType {
@@ -56,6 +57,19 @@ func _physics_process(delta: float) -> void:
 	
 	if(player.score >= 25000 and !boss_spawned):
 		var boss_inst : Area2D = boss_file.instantiate();
+		root_node.add_child(boss_inst);
+		boss_inst.initialize(player);
+		boss_inst.global_position = Vector2(562, -420);
+		boss_spawned = true;
+	
+	if(player.score >= 70000 and !ultra_instinct_boss):
+		var boss_inst : Area2D = boss_file.instantiate();
+		root_node.add_child(boss_inst);
+		boss_inst.initialize(player);
+		boss_inst.global_position = Vector2(562, -420);
+		boss_spawned = true;
+		
+		boss_inst = boss_file.instantiate();
 		root_node.add_child(boss_inst);
 		boss_inst.initialize(player);
 		boss_inst.global_position = Vector2(562, -420);

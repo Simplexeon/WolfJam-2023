@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://boo6hsi0quufo"]
+[gd_scene load_steps=3 format=3 uid="uid://boo6hsi0quufo"]
 
 [ext_resource type="Script" path="res://Enemies/BossDeathYell.gd" id="1_63m46"]
+[ext_resource type="AudioStream" uid="uid://c2xpkwqdao0tr" path="res://Enemies/bosssound.wav" id="1_i6sog"]
 
 [node name="BossDeathYell" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_i6sog")
+volume_db = 20.0
+pitch_scale = 1.3
 autoplay = true
 script = ExtResource("1_63m46")
 
