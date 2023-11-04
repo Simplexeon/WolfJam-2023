@@ -73,3 +73,14 @@ func make_light() -> void:
 	light_inst.global_position = global_position;
 	get_parent().add_child(light_inst);
 	light_inst.initialize(light.texture_scale, 1.5);
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if(area.has_method("damage")):
+		area.damage();
+		area.damage();
+		area.damage();
+		area.damage();
+		make_light();
+		queue_free();
+		return;

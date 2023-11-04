@@ -1,0 +1,398 @@
+[gd_scene load_steps=24 format=3 uid="uid://vrvp0e2tcm1v"]
+
+[ext_resource type="Script" path="res://Enemies/Boss.gd" id="1_brlm3"]
+[ext_resource type="Texture2D" uid="uid://cdo7q7ah7wqif" path="res://Art/Prototype/PixelLight.png" id="3_x1s42"]
+[ext_resource type="Texture2D" uid="uid://brp2k8sjga6wv" path="res://Art/enemies/sinew god/godarm1.png" id="6_2l5oh"]
+[ext_resource type="AudioStream" uid="uid://nh5e2q5mw30s" path="res://SFX/BossHurt.wav" id="6_agixn"]
+[ext_resource type="Script" path="res://Enemies/ElkSounds.gd" id="6_jv05f"]
+[ext_resource type="AudioStream" uid="uid://cu6u3o2sgr2h5" path="res://SFX/bosssound.wav" id="7_mjnjx"]
+[ext_resource type="Texture2D" uid="uid://cx46l66emx8j8" path="res://Art/enemies/sinew god/godarm2.png" id="7_pambk"]
+[ext_resource type="AudioStream" uid="uid://c840gl83kij2" path="res://SFX/elksound(spawn).wav" id="7_tqqqw"]
+[ext_resource type="Texture2D" uid="uid://dk28gj42ncivq" path="res://Art/enemies/sinew god/godskull.png" id="8_ogy1w"]
+[ext_resource type="Texture2D" uid="uid://dmi6x2nn6nnps" path="res://Art/enemies/sinew god/godlefthand.png" id="8_r1rme"]
+[ext_resource type="AudioStream" uid="uid://csg1nj2aiq6gt" path="res://SFX/elksounddie.wav" id="8_uu0bq"]
+[ext_resource type="Texture2D" uid="uid://468rv4evwh2i" path="res://Art/enemies/sinew god/godrighthand.png" id="9_vt05w"]
+[ext_resource type="Script" path="res://Enemies/BossHands.gd" id="10_bdkrv"]
+[ext_resource type="AudioStream" uid="uid://blhnxpuqfl2ad" path="res://SFX/bossbackingchant.wav" id="14_w8mqi"]
+[ext_resource type="Script" path="res://Enemies/Chant.gd" id="15_xogqv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a4iww"]
+radius = 58.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_86cb3"]
+streams_count = 4
+random_pitch = 1.06
+random_volume_offset_db = 15.0
+stream_0/stream = ExtResource("7_tqqqw")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("8_uu0bq")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_agixn")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_mjnjx")
+stream_3/weight = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r78se"]
+radius = 349.006
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_37i52"]
+radius = 13.3919
+height = 38.2038
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4nicl"]
+
+[sub_resource type="Animation" id="Animation_0dofv"]
+resource_name = "crawl"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftArm:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-2.05618, -2.97067, -2.05618]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftArm/LeftElbow:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.577945, 2.4049, 0.577945]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftArm/LeftElbow/LeftHand:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [2.61462, 2.2514, 2.61462]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightArm:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.00750713, -1.10559, -0.00750713]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RightArm/RightElbow:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-2.27036, -0.855844, -2.27036]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RightArm/RightElbow/RightHand:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.97157, 3.37556, 3.97157]
+}
+
+[sub_resource type="Animation" id="Animation_sjoif"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftArm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.05618]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftArm/LeftElbow:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.577945]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftArm/LeftElbow/LeftHand:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.61462]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightArm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.00750713]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RightArm/RightElbow:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.27036]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RightArm/RightElbow/RightHand:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.97157]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7oott"]
+_data = {
+"RESET": SubResource("Animation_sjoif"),
+"crawl": SubResource("Animation_0dofv")
+}
+
+[node name="Boss" type="Area2D"]
+z_index = 1
+script = ExtResource("1_brlm3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(24, 4)
+shape = SubResource("CircleShape2D_a4iww")
+
+[node name="GlowingEyes" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="GlowingEyes"]
+position = Vector2(5, -5)
+rotation = 0.459222
+scale = Vector2(10, 3)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 4.18
+texture = ExtResource("3_x1s42")
+
+[node name="PointLight2D2" type="PointLight2D" parent="GlowingEyes"]
+position = Vector2(6, 5)
+rotation = -0.46046
+scale = Vector2(10, 3)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 4.18
+texture = ExtResource("3_x1s42")
+
+[node name="PointLight2D3" type="PointLight2D" parent="GlowingEyes"]
+position = Vector2(-9, -5.96046e-08)
+scale = Vector2(8.58895, 5.42)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 4.18
+texture = ExtResource("3_x1s42")
+
+[node name="ElkSounds" type="Area2D" parent="."]
+script = ExtResource("6_jv05f")
+
+[node name="GremlinMaxing" type="AudioStreamPlayer2D" parent="ElkSounds"]
+stream = SubResource("AudioStreamRandomizer_86cb3")
+volume_db = 15.0
+max_distance = 400.0
+attenuation = 2.37841
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElkSounds"]
+shape = SubResource("CircleShape2D_r78se")
+
+[node name="Sprite" type="Node2D" parent="."]
+position = Vector2(-15, 0)
+
+[node name="LeftArm" type="Sprite2D" parent="Sprite"]
+position = Vector2(14, -9)
+rotation = -2.05618
+texture = ExtResource("6_2l5oh")
+offset = Vector2(0, 28)
+
+[node name="LeftElbow" type="Sprite2D" parent="Sprite/LeftArm"]
+position = Vector2(-0.33061, 56.355)
+rotation = 0.577945
+texture = ExtResource("7_pambk")
+offset = Vector2(0, 28)
+
+[node name="LeftHand" type="Sprite2D" parent="Sprite/LeftArm/LeftElbow"]
+position = Vector2(0.382172, 58.2139)
+rotation = 2.61462
+texture = ExtResource("8_r1rme")
+offset = Vector2(6, -14)
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite/LeftArm/LeftElbow/LeftHand"]
+position = Vector2(-12.0517, -27.2139)
+scale = Vector2(1.88057, 2.93673)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 2.0
+texture = ExtResource("3_x1s42")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Sprite/LeftArm/LeftElbow/LeftHand"]
+position = Vector2(-7.4412, -37.4116)
+scale = Vector2(1.88057, 2.93673)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 2.0
+texture = ExtResource("3_x1s42")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Sprite/LeftArm/LeftElbow/LeftHand"]
+position = Vector2(0.596451, -41.3769)
+scale = Vector2(1.88057, 2.93673)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 2.0
+texture = ExtResource("3_x1s42")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Sprite/LeftArm/LeftElbow/LeftHand"]
+position = Vector2(9.09586, -38.8516)
+scale = Vector2(1.88057, 2.93673)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 2.0
+texture = ExtResource("3_x1s42")
+
+[node name="PointLight2D5" type="PointLight2D" parent="Sprite/LeftArm/LeftElbow/LeftHand"]
+position = Vector2(17.977, -19.2981)
+rotation = 0.254995
+scale = Vector2(1.88057, 2.93673)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 2.0
+texture = ExtResource("3_x1s42")
+
+[node name="Area2D" type="Area2D" parent="Sprite/LeftArm/LeftElbow/LeftHand"]
+position = Vector2(2.26391, -14.3832)
+rotation = -0.000175647
+script = ExtResource("10_bdkrv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/LeftArm/LeftElbow/LeftHand/Area2D"]
+position = Vector2(-0.856966, -6.94735)
+shape = SubResource("CapsuleShape2D_37i52")
+
+[node name="RightArm" type="Sprite2D" parent="Sprite"]
+position = Vector2(14, 12)
+rotation = -0.00750713
+texture = ExtResource("6_2l5oh")
+offset = Vector2(0, 28)
+
+[node name="RightElbow" type="Sprite2D" parent="Sprite/RightArm"]
+position = Vector2(-0.33061, 56.355)
+rotation = -2.27036
+texture = ExtResource("7_pambk")
+offset = Vector2(0, 28)
+
+[node name="RightHand" type="Sprite2D" parent="Sprite/RightArm/RightElbow"]
+position = Vector2(0.382172, 58.2139)
+rotation = 3.97157
+texture = ExtResource("9_vt05w")
+offset = Vector2(-6, -14)
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite/RightArm/RightElbow/RightHand"]
+position = Vector2(-18.0859, -18.9303)
+rotation = -0.268839
+scale = Vector2(1.88057, 2.93673)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 2.0
+texture = ExtResource("3_x1s42")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Sprite/RightArm/RightElbow/RightHand"]
+position = Vector2(-9.36824, -39.1194)
+scale = Vector2(1.88057, 2.93673)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 2.0
+texture = ExtResource("3_x1s42")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Sprite/RightArm/RightElbow/RightHand"]
+position = Vector2(-0.249929, -41.0025)
+scale = Vector2(1.88057, 2.93673)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 2.0
+texture = ExtResource("3_x1s42")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Sprite/RightArm/RightElbow/RightHand"]
+position = Vector2(6.57332, -37.5862)
+scale = Vector2(1.88057, 2.93673)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 2.0
+texture = ExtResource("3_x1s42")
+
+[node name="PointLight2D5" type="PointLight2D" parent="Sprite/RightArm/RightElbow/RightHand"]
+position = Vector2(11.8088, -26.9666)
+rotation = 0.0600083
+scale = Vector2(1.88057, 2.93673)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 2.0
+texture = ExtResource("3_x1s42")
+
+[node name="Area2D" type="Area2D" parent="Sprite/RightArm/RightElbow/RightHand"]
+position = Vector2(-0.211512, -15.9922)
+rotation = -0.000175647
+script = ExtResource("10_bdkrv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/RightArm/RightElbow/RightHand/Area2D"]
+position = Vector2(-0.856966, -6.94735)
+shape = SubResource("CapsuleShape2D_37i52")
+
+[node name="Head" type="Sprite2D" parent="Sprite"]
+material = SubResource("CanvasItemMaterial_4nicl")
+rotation = -1.5708
+texture = ExtResource("8_ogy1w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+libraries = {
+"": SubResource("AnimationLibrary_7oott")
+}
+
+[node name="Chant" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_w8mqi")
+volume_db = 2.0
+pitch_scale = 0.75
+autoplay = true
+max_distance = 1000.0
+attenuation = 2.46229
+script = ExtResource("15_xogqv")
+
+[connection signal="body_entered" from="ElkSounds" to="ElkSounds" method="_on_body_entered"]
+[connection signal="body_exited" from="ElkSounds" to="ElkSounds" method="_on_body_exited"]
+[connection signal="finished" from="Chant" to="Chant" method="_on_finished"]

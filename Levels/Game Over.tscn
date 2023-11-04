@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://v6mcxbkccrrw"]
 
-[ext_resource type="SystemFont" uid="uid://bx32v3dw3iu1x" path="res://Art/main.tres" id="1_g3p4j"]
 [ext_resource type="Script" path="res://Levels/Game Over.gd" id="1_uy6tv"]
 [ext_resource type="Script" path="res://Levels/ScoreLabel.gd" id="2_a5kjj"]
 [ext_resource type="Texture2D" uid="uid://cnbodwes3cv46" path="res://Art/game over background (1).png" id="2_e5ae1"]
 [ext_resource type="Script" path="res://Levels/ReplayButton.gd" id="3_2ynld"]
+[ext_resource type="FontFile" uid="uid://c785noxdvf55c" path="res://Art/QuinqueFive.ttf" id="3_tmnjb"]
 [ext_resource type="Texture2D" uid="uid://b61h2q7ibm8ku" path="res://Art/retry clicked.png" id="5_k0b8n"]
 [ext_resource type="Texture2D" uid="uid://dp86h6qo7sy2g" path="res://Art/retry.png" id="6_kje3e"]
 [ext_resource type="PackedScene" uid="uid://baiqwo3r26agl" path="res://Objects/crosshair.tscn" id="8_6iigr"]
@@ -31,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.121569, 0.0196078, 0.0627451, 1)
-theme_override_fonts/normal_font = ExtResource("1_g3p4j")
+theme_override_fonts/normal_font = ExtResource("3_tmnjb")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]1000[/center]"
@@ -55,7 +55,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(1, 0.509804, 0.454902, 1)
-theme_override_fonts/normal_font = ExtResource("1_g3p4j")
+theme_override_fonts/normal_font = ExtResource("3_tmnjb")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]1000[/center]"
@@ -77,7 +77,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.121569, 0.0196078, 0.0627451, 1)
-theme_override_fonts/normal_font = ExtResource("1_g3p4j")
+theme_override_fonts/normal_font = ExtResource("3_tmnjb")
 theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
 text = "[center]Your Score:[/center]"
@@ -100,7 +100,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(1, 0.509804, 0.454902, 1)
-theme_override_fonts/normal_font = ExtResource("1_g3p4j")
+theme_override_fonts/normal_font = ExtResource("3_tmnjb")
 theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
 text = "[center]Your Score:[/center]"
@@ -121,7 +121,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.121569, 0.0196078, 0.0627451, 1)
-theme_override_fonts/normal_font = ExtResource("1_g3p4j")
+theme_override_fonts/normal_font = ExtResource("3_tmnjb")
 theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
 text = "[center]Immolate Again?[/center]"
@@ -144,7 +144,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(1, 0.509804, 0.454902, 1)
-theme_override_fonts/normal_font = ExtResource("1_g3p4j")
+theme_override_fonts/normal_font = ExtResource("3_tmnjb")
 theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
 text = "[center]Immolate Again?[/center]"
@@ -158,7 +158,7 @@ offset_right = 162.0
 offset_bottom = 202.0
 texture_normal = ExtResource("5_k0b8n")
 texture_pressed = ExtResource("6_kje3e")
-texture_hover = ExtResource("6_kje3e")
+texture_hover = ExtResource("5_k0b8n")
 script = ExtResource("3_2ynld")
 
 [node name="Crosshair" parent="." instance=ExtResource("8_6iigr")]

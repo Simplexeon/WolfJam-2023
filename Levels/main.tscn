@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://baiqwo3r26agl" path="res://Objects/crosshair.tscn" id="2_v13pq"]
 [ext_resource type="Script" path="res://Levels/EnemySpawner.gd" id="3_hjepc"]
 [ext_resource type="PackedScene" uid="uid://brjpsfcowvc7i" path="res://Player/player_character.tscn" id="4_h0qhc"]
-[ext_resource type="SystemFont" uid="uid://bx32v3dw3iu1x" path="res://Art/main.tres" id="7_ld664"]
+[ext_resource type="FontFile" uid="uid://c785noxdvf55c" path="res://Art/QuinqueFive.ttf" id="7_xncyh"]
 [ext_resource type="AudioStream" uid="uid://cur0uu204anox" path="res://SFX/wind.wav" id="8_l8ucb"]
 [ext_resource type="AudioStream" uid="uid://u0h8nh1kx86u" path="res://SFX/wind2.wav" id="9_lj1vq"]
 [ext_resource type="AudioStream" uid="uid://b80xar6ixb5lq" path="res://SFX/wind3.wav" id="10_ujnr0"]
@@ -127,7 +127,7 @@ offset_right = -24.0
 offset_bottom = 123.0
 grow_vertical = 0
 theme_override_colors/default_color = Color(1, 0.509804, 0.454902, 1)
-theme_override_fonts/normal_font = ExtResource("7_ld664")
+theme_override_fonts/normal_font = ExtResource("7_xncyh")
 theme_override_font_sizes/normal_font_size = 10
 text = "0"
 
@@ -144,7 +144,7 @@ offset_right = 97.0
 offset_bottom = 1.0
 grow_vertical = 0
 theme_override_colors/default_color = Color(0.835294, 0.235294, 0.415686, 1)
-theme_override_fonts/normal_font = ExtResource("7_ld664")
+theme_override_fonts/normal_font = ExtResource("7_xncyh")
 theme_override_font_sizes/normal_font_size = 10
 text = "0"
 

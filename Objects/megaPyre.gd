@@ -10,8 +10,12 @@ var pyre_increase_rate : float = 1.05;
 @onready var light : PointLight2D = $PointLight2D;
 @onready var audio_player : AudioStreamPlayer2D = $AudioStreamPlayer2D;
 @onready var area_2d : CollisionShape2D = $Area2D/CollisionShape2D;
+@onready var label : RichTextLabel = $Label;
+@onready var label_timer : Timer = $LabelTimer;
 
 var shrinking : bool = false;
+var text : bool = true;
+var text_fade_timer : float = 0.0;
 
 func _ready() -> void:
 	light.texture_scale = lerp(0.0, max_scale, current_scale);
@@ -21,6 +25,13 @@ func _physics_process(delta: float) -> void:
 	
 	if(!shrinking):
 		return;
+	
+	if(text):
+		text_fade_timer += 1.0 * delta;
+		label.modulate.a = lerp(label.modulate.a, 0.0, text_fade_timer);
+		if(label.modulate.a <=0.04):
+			label.queue_free();
+			text = false;
 	
 	light.texture_scale = lerp(0.0, max_scale, current_scale);
 	current_scale -= dim_rate * delta;
@@ -37,7 +48,9 @@ func _physics_process(delta: float) -> void:
 
 func _fed_fire() -> void:
 	if(!shrinking):
+		label_timer.start();
 		shrinking = true;
+		text = true;
 	current_scale = current_scale * pyre_increase_rate;
 
 
@@ -45,3 +58,6 @@ func _on_audio_stream_player_2d_finished() -> void:
 	audio_player.play();
 
 
+
+func _on_label_timer_timeout() -> void:
+	pass # Replace with function body.

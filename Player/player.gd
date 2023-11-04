@@ -45,7 +45,9 @@ var score_multiplier : float = 1.0;
 @onready var camera_pos : Node2D = $CameraPos;
 @onready var kill_count_timer : Timer = $KillCountTimer;
 @onready var invulnerability_timer : Timer = $InvulnerabilityTimer;
+@onready var light : PointLight2D = $PointLight2D;
 @onready var audio_player : AudioStreamPlayer2D = $AudioStreamPlayer2D;
+@onready var hitsounds : AudioStreamPlayer = $Hitsounds;
 
 
 var death_transition_file : PackedScene = preload("res://Objects/Transition.tscn");
@@ -121,6 +123,8 @@ func set_hp(new_value : int):
 		return;
 	HP = max(new_value, 0);
 	invulnerability_timer.start();
+	light.energy = 10.0;
+	hitsounds.play();
 	if(HP == 0):
 		Score.end_score = score;
 		var transition_inst : Sprite2D = death_transition_file.instantiate();
@@ -142,6 +146,8 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area is BossHands:
+		HP -= 1;
 	if area.get_parent() is MegaPyre:
 		score_multiplier = 3.0;
 
@@ -149,3 +155,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 func _on_hitbox_area_exited(area: Area2D) -> void:
 	if area.get_parent() is MegaPyre:
 		score_multiplier = 1.0;
+
+
+func _on_invulnerability_timer_timeout() -> void:
+	light.energy = 0.4;

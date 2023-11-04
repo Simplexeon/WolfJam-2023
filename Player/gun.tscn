@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bw65r46rw5y20" path="res://SFX/gun2.wav" id="4_pt43q"]
 [ext_resource type="AudioStream" uid="uid://fnuhfmuyrhk0" path="res://SFX/gun3.wav" id="5_dxodr"]
 [ext_resource type="AudioStream" uid="uid://dhjonf83n2i1b" path="res://SFX/gun4.wav" id="6_c1hef"]
-[ext_resource type="AudioStream" uid="uid://d50arypv26ys" path="res://SFX/reload.wav" id="7_gdtu0"]
+[ext_resource type="AudioStream" uid="uid://vtx2yfrcyefb" path="res://SFX/Reloadnew.wav" id="7_dm4ij"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l784x"]
 light_mode = 1
@@ -64,8 +64,9 @@ stream = SubResource("AudioStreamRandomizer_p6as6")
 volume_db = -2.0
 
 [node name="ReloadSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_gdtu0")
-volume_db = 6.0
+stream = ExtResource("7_dm4ij")
+volume_db = 24.0
+pitch_scale = 0.8
 max_distance = 400.0
 attenuation = 2.54912
 

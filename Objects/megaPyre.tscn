@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cwg8ewesnyeyb" path="res://Art/Large pyre.png" id="2_7goey"]
 [ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="3_yl0ii"]
 [ext_resource type="AudioStream" uid="uid://3gocta2x5l7e" path="res://SFX/fire.wav" id="4_cy57n"]
-[ext_resource type="SystemFont" uid="uid://bx32v3dw3iu1x" path="res://Art/main.tres" id="5_11mdm"]
 [ext_resource type="Script" path="res://Objects/Area2D.gd" id="5_mb1gs"]
+[ext_resource type="FontFile" uid="uid://c785noxdvf55c" path="res://Art/QuinqueFive.ttf" id="6_exhnm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cyc8k"]
 radius = 310.002
@@ -20,7 +20,7 @@ script = ExtResource("1_p7chx")
 texture = ExtResource("2_7goey")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-energy = 0.8
+energy = 0.5
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = ExtResource("3_yl0ii")
@@ -47,7 +47,7 @@ offset_top = -57.0
 offset_right = 102.0
 offset_bottom = -17.0
 theme_override_colors/default_color = Color(1, 0.509804, 0.454902, 1)
-theme_override_fonts/normal_font = ExtResource("5_11mdm")
+theme_override_fonts/normal_font = ExtResource("6_exhnm")
 theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
 text = "[center]Feed the
@@ -63,12 +63,17 @@ offset_top = 1.0
 offset_right = 219.0
 offset_bottom = 41.0
 theme_override_colors/default_color = Color(0.27451, 0.054902, 0.168627, 1)
-theme_override_fonts/normal_font = ExtResource("5_11mdm")
+theme_override_fonts/normal_font = ExtResource("6_exhnm")
 theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
 text = "[center]Feed the
        Flames[/center]"
 
+[node name="LabelTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="timeout" from="LabelTimer" to="." method="_on_label_timer_timeout"]
