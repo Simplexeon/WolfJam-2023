@@ -11,20 +11,26 @@ extends Node2D
 # Components
 @onready var cooldown_timer : Timer = $CDTimer;
 @onready var gun_head : Node2D = $GunHead;
-
+var root_node : Node2D;
 
 var bullet_scene : PackedScene = preload("res://Player/Bullet.tscn");
+
+
+func _ready() -> void:
+	root_node = get_tree().current_scene;
 
 
 func shoot(mouse_pos : Vector2) -> void:
 	
 	# If on cooldown, return early
-	if(cooldown_timer.is_stopped()):
+	if(!cooldown_timer.is_stopped()):
 		return;
 	
 	# Spawn bullets
 	var i : int = 0;
 	while(i < bullet_count):
+		
+		print("made bullet");
 		
 		# Get angle variance
 		var angle : float = lerp(spread * -1, spread, randf());
@@ -35,9 +41,9 @@ func shoot(mouse_pos : Vector2) -> void:
 		var bullet_speed : float = lerp(min_range, max_range, randf());
 		
 		# Create the bullet
-		var bullet_instance : Area2D = bullet_scene.instantiate();
-		CreateNode.root.add_child(bullet_instance);
-		bullet_instance.instantiate(gun_head.global_position, bullet_dir, bullet_speed, bullet_lifetime);
+		var bullet_instance = bullet_scene.instantiate();
+		root_node.add_child(bullet_instance);
+		bullet_instance.initialize(gun_head.global_position, bullet_dir, bullet_speed, bullet_lifetime);
 		
 		# Increment the loop
 		i += 1;
