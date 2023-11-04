@@ -29,3 +29,4 @@ res://Objects/crosshair.tscn
 res://Objects/crosshair.gd
 res://Enemies/EnemyDeathSound.gd
 res://Enemies/EnemyDeathSound.tscn
+res://Levels/AudioStreamPlayer.gd
