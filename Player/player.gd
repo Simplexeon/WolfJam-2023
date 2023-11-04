@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 signal shoot_shake;
+signal enemy_dead;
 
 # Properties
 @export var Speed : float;
@@ -109,6 +110,7 @@ func GetMovementDirection() -> Vector2:
 
 
 func _on_enemy_died(death_pos : Vector2) -> void:
+	enemy_dead.emit();
 	score += KillScore;
 
 func set_hp(new_value : int):

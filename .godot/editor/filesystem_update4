@@ -34,3 +34,5 @@ res://Enemies/ElkSounds.gd
 res://Levels/Camera2D.gd
 res://Objects/Transition.tscn
 res://Objects/Transition.gd
+res://Objects/megaPyre.tscn
+res://Objects/megaPyre.gd
