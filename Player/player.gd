@@ -40,6 +40,7 @@ var pyre_count : int = 0;
 @onready var camera_pos : Node2D = $CameraPos;
 @onready var kill_count_timer : Timer = $KillCountTimer;
 @onready var invulnerability_timer : Timer = $InvulnerabilityTimer;
+@onready var audio_player : AudioStreamPlayer2D = $AudioStreamPlayer2D;
 
 
 # Files
@@ -66,7 +67,6 @@ func _physics_process(delta: float) -> void:
 	
 	# Get movement direction
 	move_direction = GetMovementDirection();
-	Crosshair.global_position = mouse_pos;
 	
 	
 	# Rotate the player to face the mouse
@@ -94,6 +94,12 @@ func GetMovementDirection() -> Vector2:
 		result.x -= 1;
 	if(right):
 		result.x += 1;
+	
+	if(result != Vector2.ZERO and audio_player.playing == false):
+		audio_player.play();
+	elif(result == Vector2.ZERO):
+		audio_player.stop();
+	
 	return result.normalized();
 
 

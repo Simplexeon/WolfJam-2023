@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://mhpso4iyhojp"]
+[gd_scene load_steps=6 format=3 uid="uid://mhpso4iyhojp"]
 
 [ext_resource type="Texture2D" uid="uid://culfjsdq54w5j" path="res://Art/Pyre replace.png" id="1_23vfw"]
 [ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="1_ayrjv"]
 [ext_resource type="Script" path="res://Objects/pyre.gd" id="1_ueu8d"]
+[ext_resource type="AudioStream" uid="uid://3gocta2x5l7e" path="res://SFX/fire.wav" id="4_05y70"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xj8qh"]
 radius = 9.0
@@ -25,3 +26,12 @@ shape = SubResource("CircleShape2D_xj8qh")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 radius = 15.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_05y70")
+volume_db = 5.0
+autoplay = true
+max_distance = 500.0
+attenuation = 4.43828
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://v6mcxbkccrrw"]
+[gd_scene load_steps=9 format=3 uid="uid://v6mcxbkccrrw"]
 
 [ext_resource type="SystemFont" uid="uid://bx32v3dw3iu1x" path="res://Art/main.tres" id="1_g3p4j"]
 [ext_resource type="Script" path="res://Levels/Game Over.gd" id="1_uy6tv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Levels/ReplayButton.gd" id="3_2ynld"]
 [ext_resource type="Texture2D" uid="uid://b61h2q7ibm8ku" path="res://Art/retry clicked.png" id="5_k0b8n"]
 [ext_resource type="Texture2D" uid="uid://dp86h6qo7sy2g" path="res://Art/retry.png" id="6_kje3e"]
+[ext_resource type="PackedScene" uid="uid://baiqwo3r26agl" path="res://Objects/crosshair.tscn" id="8_6iigr"]
 
 [node name="Game Over" type="Node2D"]
 script = ExtResource("1_uy6tv")
@@ -158,5 +159,8 @@ texture_normal = ExtResource("5_k0b8n")
 texture_pressed = ExtResource("6_kje3e")
 texture_hover = ExtResource("6_kje3e")
 script = ExtResource("3_2ynld")
+
+[node name="Crosshair" parent="." instance=ExtResource("8_6iigr")]
+frame = 0
 
 [connection signal="pressed" from="ReplayButton" to="ReplayButton" method="_on_pressed"]
