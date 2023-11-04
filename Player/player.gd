@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var HP : int : set = set_hp;
 func set_hp(new_value : int):
 	HP = max(new_value, 0);
-	
+	Crosshair.frame = new_value;
 
 
 
@@ -69,6 +69,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Get movement direction
 	move_direction = GetMovementDirection();
+	Crosshair.global_position = mouse_pos;
 	
 	
 	# Rotate the player to face the mouse
