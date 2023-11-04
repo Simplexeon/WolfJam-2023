@@ -11,6 +11,10 @@ var speed : float = 0.0;
 # Components
 @onready var timer : Timer = $Timer;
 @onready var sprite : Sprite2D = $Sprite2D;
+@onready var light : PointLight2D = $PointLight2D;
+
+# Files
+var light_dimmer : PackedScene = preload("res://Objects/LightDimmer.tscn");
 
 # Triggers
 var initialized : bool = false;
@@ -53,4 +57,24 @@ func _physics_process(delta: float) -> void:
 
 ## Delete the bullet
 func _on_timer_timeout() -> void:
+	make_light();
 	queue_free();
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is TileMap:
+		make_light();
+		queue_free();
+		return;
+	if body is Enemy:
+		body.damage();
+		make_light();
+		queue_free();
+		return;
+
+
+func make_light() -> void:
+	var light_inst : PointLight2D = light_dimmer.instantiate();
+	light_inst.global_position = global_position;
+	get_parent().add_child(light_inst);
+	light_inst.initialize(light.texture_scale, 1.5);

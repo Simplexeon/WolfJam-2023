@@ -37,7 +37,7 @@ func shoot(mouse_pos : Vector2) -> void:
 		
 		# Get angle variance
 		var angle : float = lerp(spread * -1, spread, randf());
-		var bullet_dir : Vector2 = (mouse_pos - gun_head.global_position).normalized();
+		var bullet_dir : Vector2 = (gun_head.global_position - global_position).normalized();
 		bullet_dir = bullet_dir.rotated(deg_to_rad(angle));
 		
 		# Get distance variance

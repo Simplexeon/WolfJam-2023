@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://g33or5mpkwtf"]
+[gd_scene load_steps=8 format=3 uid="uid://g33or5mpkwtf"]
 
 [ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_elbty"]
 [ext_resource type="Texture2D" uid="uid://b8yaeuw64wagc" path="res://Art/enemies/VampireA.png" id="2_d0y46"]
 [ext_resource type="Texture2D" uid="uid://cdo7q7ah7wqif" path="res://Art/Prototype/PixelLight.png" id="3_k174r"]
 [ext_resource type="Script" path="res://Enemies/Navigation.gd" id="4_igxrk"]
+[ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="5_jnmxy"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_au50w"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -14,7 +15,6 @@ radius = 9.0
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_elbty")
-speed = 65.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_d0y46")
@@ -56,4 +56,15 @@ max_neighbors = 20
 [node name="NavigationTimer" type="Timer" parent="Navigation"]
 wait_time = 0.6
 
+[node name="DamageLight" type="PointLight2D" parent="."]
+visible = false
+energy = 10.0
+texture = ExtResource("5_jnmxy")
+texture_scale = 0.2
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
 [connection signal="timeout" from="Navigation/NavigationTimer" to="Navigation" method="_on_navigation_timer_timeout"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

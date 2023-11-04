@@ -1,18 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://mhpso4iyhojp"]
 
 [ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="1_ayrjv"]
+[ext_resource type="Texture2D" uid="uid://cekp6g6y01ikn" path="res://Art/pyre.png" id="1_fp40s"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ddhkc"]
-radius = 15.0333
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_0bq2j"]
-vertices = PackedVector2Array(-5, -14, 7, -14, 16, -6, 15, 8, 2, 16, -14, 9, -16, -7)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-5, -14, 7, -14, 16, -6, 15, 8, 2, 16, -14, 9, -16, -7)])
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpy1m"]
+size = Vector2(32, 32)
 
 [node name="Pyre" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fp40s")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 0.8
@@ -22,13 +19,7 @@ texture = ExtResource("1_ayrjv")
 texture_scale = 1.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ddhkc")
+shape = SubResource("RectangleShape2D_wpy1m")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 radius = 25.0
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_0bq2j")
-enter_cost = 5.0
-travel_cost = 10.0
-constrain_avoidance = true

@@ -10,14 +10,11 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_egfi3")
 
-[node name="TileMap" parent="." instance=ExtResource("2_v2rwh")]
-z_index = -1
-
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position_smoothing_speed = 50.0
 script = ExtResource("2_lh26t")
 player = NodePath("../PlayerCharacter")
-smoothing = 0.8
+smoothing = 0.9
 
 [node name="ShadingController" type="Node2D" parent="."]
 
@@ -33,7 +30,55 @@ Speed = 130.0
 script = ExtResource("3_hjepc")
 
 [node name="SpawnPoint" type="Node2D" parent="EnemySpawner"]
-position = Vector2(407, 383)
+position = Vector2(-3, 951)
+
+[node name="SpawnPoint2" type="Node2D" parent="EnemySpawner"]
+position = Vector2(-5, 10)
+
+[node name="SpawnPoint3" type="Node2D" parent="EnemySpawner"]
+position = Vector2(1744, 10)
+
+[node name="SpawnPoint4" type="Node2D" parent="EnemySpawner"]
+position = Vector2(1752, 951)
+
+[node name="SpawnPoint5" type="Node2D" parent="EnemySpawner"]
+position = Vector2(856, 735)
+
+[node name="SpawnPoint6" type="Node2D" parent="EnemySpawner"]
+position = Vector2(565, 637)
+
+[node name="SpawnPoint7" type="Node2D" parent="EnemySpawner"]
+position = Vector2(1306, 852)
+
+[node name="SpawnPoint8" type="Node2D" parent="EnemySpawner"]
+position = Vector2(427, 858)
+
+[node name="SpawnPoint9" type="Node2D" parent="EnemySpawner"]
+position = Vector2(1351, 347)
+
+[node name="SpawnPoint10" type="Node2D" parent="EnemySpawner"]
+position = Vector2(107, 747)
+
+[node name="SpawnPoint11" type="Node2D" parent="EnemySpawner"]
+position = Vector2(1448, 138)
+
+[node name="SpawnPoint12" type="Node2D" parent="EnemySpawner"]
+position = Vector2(118, 437)
+
+[node name="SpawnPoint13" type="Node2D" parent="EnemySpawner"]
+position = Vector2(388, 54)
+
+[node name="SpawnPoint14" type="Node2D" parent="EnemySpawner"]
+position = Vector2(746, 183)
+
+[node name="SpawnPoint15" type="Node2D" parent="EnemySpawner"]
+position = Vector2(1651, 343)
+
+[node name="SpawnPoint16" type="Node2D" parent="EnemySpawner"]
+position = Vector2(1046, 54)
 
 [node name="Pyre" parent="." instance=ExtResource("7_xiprn")]
+z_index = 1
 position = Vector2(294, 387)
+
+[node name="TileMap" parent="." instance=ExtResource("2_v2rwh")]

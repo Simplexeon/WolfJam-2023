@@ -6,10 +6,17 @@ var tilemap : TileMap;
 
 # Variables
 var spawn_count : int;
-var points : float = 0.0;
+var points : float = 6.0;
 var points_per_sec : float = 0.3;
+var point_growth : float = 0.005;
 var basic_cost : int = 1;
 var flanker_cost : int = 2;
+
+# Point shop vars
+var wave_points_minimum : int = 6;
+var wave_points_maximum : int = 13;
+var next_wave_points : int = 0;
+
 
 # Files
 var enemy_file : PackedScene = preload("res://Enemies/enemy.tscn");
@@ -33,9 +40,16 @@ func _game_ready(new_player : CharacterBody2D, new_tilemap : TileMap) -> void:
 	player = new_player;
 	tilemap = new_tilemap;
 	
+	next_wave_points = randi_range(wave_points_minimum, wave_points_maximum);
+	
 	navigation_map = tilemap.get_navigation_map(0);
 	
-	create_enemy(EnemyType.FLANKER);
+
+
+func _physics_process(delta: float) -> void:
+	points += points_per_sec * delta;
+	points_per_sec = points_per_sec * (1 + point_growth * delta);
+	calculate_spawn();
 
 
 func create_enemy(type : EnemyType) -> void:
@@ -46,4 +60,10 @@ func create_enemy(type : EnemyType) -> void:
 
 
 func calculate_spawn() -> void:
-	pass
+	
+	if(points > next_wave_points):
+		while(points > 0):
+			create_enemy(EnemyType.BASIC);
+			points -= 1;
+		
+		next_wave_points = randi_range(wave_points_minimum, wave_points_maximum);

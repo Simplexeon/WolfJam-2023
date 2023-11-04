@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2ug0vurexoo4"]
+
+[ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="1_5773b"]
+[ext_resource type="Script" path="res://Objects/LightDimmer.gd" id="2_o3e2l"]
+
+[node name="LightDimmer" type="PointLight2D"]
+texture = ExtResource("1_5773b")
+script = ExtResource("2_o3e2l")
