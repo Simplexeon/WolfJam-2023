@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://c14toggpuntcs" path="res://SFX/wind4.wav" id="11_7vdhf"]
 [ext_resource type="Script" path="res://Levels/AudioStreamPlayer.gd" id="12_htfj0"]
 [ext_resource type="PackedScene" uid="uid://kwmuk2ov0cy8" path="res://Objects/Transition.tscn" id="13_dc3yx"]
-[ext_resource type="PackedScene" uid="uid://ds8t6urxx0ol8" path="res://Objects/megaPyre.tscn" id="14_6mfmg"]
+[ext_resource type="PackedScene" uid="uid://ijhe2w0jsu3g" path="res://Objects/megaPyre.tscn" id="14_6mfmg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wc41l"]
 light_mode = 1
@@ -164,7 +164,6 @@ script = ExtResource("12_htfj0")
 position = Vector2(697, 400)
 
 [node name="Pyre" parent="MegaPyres/PyreSpot" instance=ExtResource("14_6mfmg")]
-position = Vector2(-19.0617, 195.318)
 
 [node name="PyreSpot2" type="Node2D" parent="MegaPyres"]
 position = Vector2(1425, 649)

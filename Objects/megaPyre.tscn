@@ -1,77 +1,74 @@
-[gd_scene load_steps=10 format=3 uid="uid://ds8t6urxx0ol8"]
+[gd_scene load_steps=9 format=3 uid="uid://ijhe2w0jsu3g"]
 
-[ext_resource type="Script" path="res://Objects/megaPyre.gd" id="1_hi15l"]
-[ext_resource type="Texture2D" uid="uid://cwg8ewesnyeyb" path="res://Art/Large pyre.png" id="2_kk4e3"]
-[ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="3_oulie"]
-[ext_resource type="AudioStream" uid="uid://3gocta2x5l7e" path="res://SFX/fire.wav" id="4_3fn6r"]
-[ext_resource type="FontFile" uid="uid://c785noxdvf55c" path="res://Art/QuinqueFive.ttf" id="5_t2pdk"]
+[ext_resource type="Script" path="res://Objects/megaPyre.gd" id="1_p7chx"]
+[ext_resource type="Texture2D" uid="uid://cwg8ewesnyeyb" path="res://Art/Large pyre.png" id="2_7goey"]
+[ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="3_yl0ii"]
+[ext_resource type="AudioStream" uid="uid://3gocta2x5l7e" path="res://SFX/fire.wav" id="4_cy57n"]
+[ext_resource type="SystemFont" uid="uid://bx32v3dw3iu1x" path="res://Art/main.tres" id="5_11mdm"]
+[ext_resource type="Script" path="res://Objects/Area2D.gd" id="5_mb1gs"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xj8qh"]
-radius = 26.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_cyc8k"]
+radius = 310.002
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3utkd"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bvugv"]
 light_mode = 1
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sg1ac"]
-light_mode = 1
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1hx1r"]
-radius = 323.0
-
-[node name="Pyre" type="StaticBody2D"]
-script = ExtResource("1_hi15l")
+[node name="Pyre" type="Node2D"]
+script = ExtResource("1_p7chx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_kk4e3")
+texture = ExtResource("2_7goey")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-energy = 0.7
+energy = 0.8
 shadow_enabled = true
 shadow_item_cull_mask = 3
-texture = ExtResource("3_oulie")
+texture = ExtResource("3_yl0ii")
 texture_scale = 2.5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_xj8qh")
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_3fn6r")
+stream = ExtResource("4_cy57n")
 volume_db = 5.0
 autoplay = true
 max_distance = 500.0
 attenuation = 4.43828
 
-[node name="Text" type="RichTextLabel" parent="."]
-material = SubResource("CanvasItemMaterial_3utkd")
-offset_left = -59.0
-offset_top = -44.0
-offset_right = 85.0
-offset_bottom = 4.0
-theme_override_colors/default_color = Color(1, 0.509804, 0.454902, 1)
-theme_override_fonts/normal_font = ExtResource("5_t2pdk")
-theme_override_font_sizes/normal_font_size = 10
-text = "Feed The
-     Flames"
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("5_mb1gs")
 
-[node name="Text" type="RichTextLabel" parent="Text"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_cyc8k")
+
+[node name="Label" type="RichTextLabel" parent="."]
+z_index = 10
+material = SubResource("CanvasItemMaterial_bvugv")
+offset_left = -116.0
+offset_top = -57.0
+offset_right = 102.0
+offset_bottom = -17.0
+theme_override_colors/default_color = Color(1, 0.509804, 0.454902, 1)
+theme_override_fonts/normal_font = ExtResource("5_11mdm")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[center]Feed the
+       Flames[/center]"
+
+[node name="Label" type="RichTextLabel" parent="Label"]
 show_behind_parent = true
-material = SubResource("CanvasItemMaterial_sg1ac")
+z_index = 9
+material = SubResource("CanvasItemMaterial_bvugv")
 layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
-offset_right = 145.0
-offset_bottom = 49.0
+offset_right = 219.0
+offset_bottom = 41.0
 theme_override_colors/default_color = Color(0.27451, 0.054902, 0.168627, 1)
-theme_override_fonts/normal_font = ExtResource("5_t2pdk")
+theme_override_fonts/normal_font = ExtResource("5_11mdm")
 theme_override_font_sizes/normal_font_size = 10
-text = "Feed The
-     Flames"
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_1hx1r")
+bbcode_enabled = true
+text = "[center]Feed the
+       Flames[/center]"
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
