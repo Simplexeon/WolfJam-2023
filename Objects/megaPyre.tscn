@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://ds8t6urxx0ol8"]
 
 [ext_resource type="Script" path="res://Objects/megaPyre.gd" id="1_hi15l"]
-[ext_resource type="Texture2D" uid="uid://culfjsdq54w5j" path="res://Art/Pyre replace.png" id="2_tvsta"]
+[ext_resource type="Texture2D" uid="uid://cwg8ewesnyeyb" path="res://Art/Large pyre.png" id="2_kk4e3"]
 [ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="3_oulie"]
 [ext_resource type="AudioStream" uid="uid://3gocta2x5l7e" path="res://SFX/fire.wav" id="4_3fn6r"]
 [ext_resource type="FontFile" uid="uid://c785noxdvf55c" path="res://Art/QuinqueFive.ttf" id="5_t2pdk"]
@@ -22,8 +22,7 @@ radius = 323.0
 script = ExtResource("1_hi15l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3.5, 3.5)
-texture = ExtResource("2_tvsta")
+texture = ExtResource("2_kk4e3")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 0.7
@@ -34,9 +33,6 @@ texture_scale = 2.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xj8qh")
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-radius = 157.7
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_3fn6r")

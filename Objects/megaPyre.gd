@@ -16,7 +16,9 @@ var mega_pyre_file : PackedScene = preload("res://Objects/megaPyre.tscn");
 var shrinking : bool = false;
 
 func _ready() -> void:
-	light.texture_scale = current_scale;
+	print("here")
+	light.texture_scale = lerp(0.0, max_scale, current_scale);
+	area_2d.shape.radius = 323 * current_scale;
 
 
 func _physics_process(delta: float) -> void:
@@ -24,6 +26,7 @@ func _physics_process(delta: float) -> void:
 	if(!shrinking):
 		return;
 	
+	print("Here");
 	light.texture_scale = lerp(0.0, max_scale, current_scale);
 	current_scale -= dim_rate * delta;
 	audio_player.max_distance = 200 * current_scale;
