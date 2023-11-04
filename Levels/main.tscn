@@ -5,3 +5,8 @@
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_luk4o")]
+
+[node name="ShadingController" type="Node2D" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="ShadingController"]
+color = Color(0.0745098, 0.00784314, 0.0313726, 1)
