@@ -11,7 +11,7 @@ var speed : float = 0.0;
 var initialized : bool = false;
 
 ## Setup the bullet
-func instantiate(start_pos : Vector2, bullet_dir : Vector2, bullet_speed : float, bullet_lifetime : float) -> void:
+func initialize(start_pos : Vector2, bullet_dir : Vector2, bullet_speed : float, bullet_lifetime : float) -> void:
 	global_position = start_pos;
 	direction = bullet_dir;
 	speed = bullet_speed;
