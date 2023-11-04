@@ -9,10 +9,10 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4nicl"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_au50w"]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+polygon = PackedVector2Array(-16.0001, -15.9999, 15.9999, -16.0001, 16.0001, 15.9999, -15.9999, 16.0001)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7xnld"]
-radius = 17.0294
+radius = 15.0333
 
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 1
@@ -59,7 +59,7 @@ path_max_distance = 3000.0
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 35.0
-max_neighbors = 20
+max_neighbors = 3
 
 [node name="NavigationTimer" type="Timer" parent="Navigation"]
 wait_time = 1.5

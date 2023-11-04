@@ -55,7 +55,7 @@ path_max_distance = 3000.0
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 20.2
-max_neighbors = 20
+max_neighbors = 6
 
 [node name="NavigationTimer" type="Timer" parent="Navigation"]
 wait_time = 1.5

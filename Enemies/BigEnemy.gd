@@ -15,13 +15,11 @@ signal died(death_pos : Vector2);
 @onready var damage_light : PointLight2D = $DamageLight;
 @onready var damage_timer : Timer = $DamageTimer;
 
-var spriteA : Texture2D = preload("res://Art/enemies/VampireA.png");
-var spriteB : Texture2D = preload("res://Art/enemies/VampireB.png");
+# Files
+var light_dissipation_file : PackedScene = preload("res://Objects/LightDimmer.tscn");
 
 func initialize(player : CharacterBody2D, type : int) -> void:
 	
-	
-	print("BIG GUY")
 	
 	# Set AI
 	navigation.initialize(player, type);
@@ -29,12 +27,6 @@ func initialize(player : CharacterBody2D, type : int) -> void:
 	# Connect signals
 	died.connect(player._on_enemy_died);
 	
-	# Set sprite
-	if(round(randf()) == 1):
-		sprite.texture = spriteA;
-	else:
-		sprite.texture = spriteB;
-		
 	damage_light.visible = false;
 
 
@@ -53,6 +45,10 @@ func damage() -> void:
 	damage_light.visible = true;
 	damage_timer.start();
 	if(hp < 1):
+		var light_dissipation_inst = light_dissipation_file.instantiate();
+		get_parent().add_child(light_dissipation_inst);
+		light_dissipation_inst.initialize(0.5, 0.8);
+		
 		died.emit(global_position);
 		queue_free();
 

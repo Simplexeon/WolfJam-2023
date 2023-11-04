@@ -18,6 +18,7 @@ signal died(death_pos : Vector2);
 
 var spriteA : Texture2D = preload("res://Art/enemies/VampireA.png");
 var spriteB : Texture2D = preload("res://Art/enemies/VampireB.png");
+var light_dissipation_file : PackedScene = preload("res://Objects/LightDimmer.tscn");
 
 func initialize(player : CharacterBody2D, type : int) -> void:
 	
@@ -51,6 +52,10 @@ func damage() -> void:
 	damage_light.visible = true;
 	damage_timer.start();
 	if(hp < 1):
+		var light_dissipation_inst = light_dissipation_file.instantiate();
+		get_parent().add_child(light_dissipation_inst);
+		light_dissipation_inst.initialize(0.3, 1.3);
+		
 		died.emit(global_position);
 		queue_free();
 

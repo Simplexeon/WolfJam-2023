@@ -67,10 +67,10 @@ func calculate_spawn() -> void:
 	
 	if(points > next_wave_points):
 		while(points > 0):
-			if(points > 4 and randf() > .65):
+			if(points > 2 and randf() > .85):
 				create_enemy(EnemyType.BIG);
-				points -= 4;
-				return;
+				points -= 2;
+				continue;
 			create_enemy(EnemyType.BASIC);
 			points -= 1;
 		
