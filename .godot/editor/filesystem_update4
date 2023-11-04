@@ -9,3 +9,4 @@ res://Player/Bullet.tscn
 res://Autoloads/create_node.gd
 res://Levels/main.gd
 res://Player/Bullet.gd
+res://Levels/tile_map.tscn

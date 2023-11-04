@@ -14,7 +14,7 @@ script = ExtResource("1_1gywm")
 
 [node name="Gun" type="Node2D" parent="."]
 script = ExtResource("3_4vagh")
-spread = 20.0
+spread = 35.0
 max_range = 300.0
 min_range = 80.0
 bullet_count = 6
