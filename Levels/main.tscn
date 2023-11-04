@@ -8,12 +8,8 @@
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_luk4o")]
+position = Vector2(-15, 1)
 Speed = 40.0
-
-[node name="ShadingController" type="Node2D" parent="."]
-
-[node name="CanvasModulate" type="CanvasModulate" parent="ShadingController"]
-color = Color(0.0745098, 0.00784314, 0.0313726, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
@@ -27,7 +23,7 @@ smoothing = 0.6
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("3_6a78b")]
-position = Vector2(68, 32)
+position = Vector2(17, 16)
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("3_6a78b")]
 position = Vector2(-73, 59)
@@ -42,3 +38,7 @@ position = Vector2(174, 150)
 energy = 4.49
 shadow_enabled = true
 texture = ExtResource("4_6jhjs")
+
+[node name="ShadingController" type="Node2D" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="ShadingController"]
