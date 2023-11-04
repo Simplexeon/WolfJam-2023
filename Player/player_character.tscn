@@ -64,7 +64,7 @@ texture_scale = 0.5
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [node name="CameraPos" type="Node2D" parent="."]
-position = Vector2(100, 0)
+position = Vector2(36, 0)
 
 [node name="KillCountTimer" type="Timer" parent="."]
 wait_time = 0.2

@@ -1,10 +1,11 @@
-res://Levels/EpillepsyWarning.gd
-res://Levels/TitleScreen.tscn
-res://Levels/main.tscn
 res://Player/player_character.tscn
+res://Levels/main.tscn
 res://Player/gun.tscn
 res://Enemies/Boss.tscn
 res://Player/RifleBullet.tscn
 res://Player/Bullet.tscn
 res://Enemies/BigEnemy.tscn
 res://Enemies/BossDeathYell.tscn
+res://Levels/TitleScreen.tscn
+res://Player/player.tscn
+res://Levels/Camera2D.gd

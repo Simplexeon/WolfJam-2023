@@ -5,6 +5,7 @@ extends Camera2D
 
 # Smoothing
 @export var smoothing : float;
+@export var cam_speed : float;
 @export var base_screen_shake : float;
 @export var shooting_screen_shake : float;
 @export var screen_shake_decay : float;
@@ -29,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	if(!game_ready):
 		return;
 	
-	global_position = lerp(global_position, ((player.camera_pos.global_position - global_position) * delta) + global_position, smoothing);
+	global_position = lerp(global_position, ((player.camera_pos.global_position - global_position) * delta * cam_speed) + global_position, smoothing);
 	screen_shake_amount = lerpf(screen_shake_amount, base_screen_shake, screen_shake_decay);
 	shake_screen(1.0);
 
