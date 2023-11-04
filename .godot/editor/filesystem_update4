@@ -1,13 +1,1 @@
-res://Objects/pyre.tscn
-res://Levels/main.tscn
-res://Enemies/enemy.tscn
-res://Player/Bullet.tscn
 res://Levels/tile_map.tscn
-res://Player/player_character.tscn
-res://Player/gun.tscn
-res://Levels/EnemySpawner.gd
-res://Levels/main.gd
-res://Enemies/enemy.gd
-res://Enemies/Navigation.gd
-res://Player/player.gd
-res://Levels/Camera2D.gd
