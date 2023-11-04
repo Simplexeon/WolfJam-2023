@@ -5,13 +5,5 @@ res://Player/player_character.tscn
 res://Player/gun.tscn
 res://Objects/pyre.tscn
 res://Levels/tile_map.tscn
-res://Levels/EnemySpawner.gd
-res://Player/Bullet.gd
-res://Enemies/enemy.gd
-res://Player/Gun.gd
 res://Objects/LightDimmer.tscn
-res://Objects/LightDimmer.gd
-res://Objects/pyre.gd
 res://Player/player.gd
-res://Enemies/Navigation.gd
-res://Levels/Camera2D.gd
