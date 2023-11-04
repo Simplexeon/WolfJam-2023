@@ -30,10 +30,11 @@ position = Vector2(52, 0)
 rotation = -1.5708
 energy = 9.77
 shadow_enabled = true
+shadow_item_cull_mask = 3
 texture = ExtResource("3_s4ft5")
 
 [node name="MuzzleFlashTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.1
 one_shot = true
 
 [connection signal="timeout" from="MuzzleFlashTimer" to="." method="_on_muzzle_flash_timer_timeout"]

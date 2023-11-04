@@ -12,3 +12,6 @@ res://Player/Bullet.gd
 res://Levels/tile_map.tscn
 res://Player/gun.tscn
 res://Player/player_character.tscn
+res://Enemies/Navigation.gd
+res://Levels/EnemySpawner.gd
+res://Objects/pyre.tscn

@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://mhpso4iyhojp"]
+
+[ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="1_ayrjv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ddhkc"]
+radius = 15.0333
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0bq2j"]
+vertices = PackedVector2Array(-5, -14, 7, -14, 16, -6, 15, 8, 2, 16, -14, 9, -16, -7)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-5, -14, 7, -14, 16, -6, 15, 8, 2, 16, -14, 9, -16, -7)])
+
+[node name="Pyre" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.7
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("1_ayrjv")
+texture_scale = 0.8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ddhkc")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 25.0
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_0bq2j")
+enter_cost = 5.0
+travel_cost = 10.0
+constrain_avoidance = true

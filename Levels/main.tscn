@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dprabjvil2cku"]
+[gd_scene load_steps=7 format=3 uid="uid://dprabjvil2cku"]
 
+[ext_resource type="Script" path="res://Levels/main.gd" id="1_egfi3"]
 [ext_resource type="Script" path="res://Levels/Camera2D.gd" id="2_lh26t"]
 [ext_resource type="PackedScene" uid="uid://ba3rpsvyhb551" path="res://Levels/tile_map.tscn" id="2_v2rwh"]
-[ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="4_6jhjs"]
+[ext_resource type="Script" path="res://Levels/EnemySpawner.gd" id="3_hjepc"]
 [ext_resource type="PackedScene" uid="uid://brjpsfcowvc7i" path="res://Player/player_character.tscn" id="4_h0qhc"]
+[ext_resource type="PackedScene" uid="uid://mhpso4iyhojp" path="res://Objects/pyre.tscn" id="7_xiprn"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_egfi3")
 
 [node name="TileMap" parent="." instance=ExtResource("2_v2rwh")]
+z_index = -1
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position_smoothing_speed = 50.0
@@ -15,27 +19,21 @@ script = ExtResource("2_lh26t")
 player = NodePath("../PlayerCharacter")
 smoothing = 0.8
 
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(133, 79)
-energy = 0.8
-shadow_enabled = true
-shadow_color = Color(0.0745098, 0.00784314, 0.0313726, 1)
-texture = ExtResource("4_6jhjs")
-height = 60.0
-
 [node name="ShadingController" type="Node2D" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="ShadingController"]
 color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 
-[node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(174, 155)
-shadow_enabled = true
-shadow_color = Color(0.0745098, 0.00784314, 0.0313726, 1)
-texture = ExtResource("4_6jhjs")
-
 [node name="PlayerCharacter" parent="." instance=ExtResource("4_h0qhc")]
+z_index = 1
 position = Vector2(117, 106)
 Speed = 130.0
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("3_hjepc")
+
+[node name="SpawnPoint" type="Node2D" parent="EnemySpawner"]
+position = Vector2(254, 199)
+
+[node name="Pyre" parent="." instance=ExtResource("7_xiprn")]
+position = Vector2(275, 107)
