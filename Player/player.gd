@@ -19,7 +19,7 @@ var move_direction : Vector2 = Vector2.ZERO;
 
 # Mouse inputs
 var shoot : bool = false;
-var melee : bool = false;
+var rifle : bool = false;
 var mouse_pos : Vector2 = Vector2.ZERO;
 
 
@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Get mouse input
 	shoot = Input.is_action_just_pressed("shoot");
-	melee = Input.is_action_just_pressed("melee");
+	rifle = Input.is_action_just_pressed("rifle");
 	mouse_pos = get_global_mouse_position();
 	
 	

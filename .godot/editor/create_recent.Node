@@ -1,6 +1,6 @@
-Sprite2D
 Button
 RichTextLabel
+Sprite2D
 Timer
 NavigationRegion2D
 CollisionShape2D

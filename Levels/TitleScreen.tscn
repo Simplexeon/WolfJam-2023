@@ -1,5 +1,73 @@
-[gd_scene format=3 uid="uid://dwj85ct5v8b13"]
+[gd_scene load_steps=4 format=3 uid="uid://dwj85ct5v8b13"]
+
+[ext_resource type="Texture2D" uid="uid://bvk8k56dnicdo" path="res://Art/Titlescreen.png" id="1_qxcfh"]
+[ext_resource type="FontFile" uid="uid://c785noxdvf55c" path="res://Art/QuinqueFive.ttf" id="2_lak0l"]
+[ext_resource type="Script" path="res://Levels/StartButton.gd" id="3_hqpj2"]
 
 [node name="TitleScreen" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(128, 128)
+texture = ExtResource("1_qxcfh")
+
+[node name="Controls" type="RichTextLabel" parent="."]
+offset_left = -1.0
+offset_top = 212.0
+offset_right = 257.0
+offset_bottom = 268.0
+theme_override_fonts/normal_font = ExtResource("2_lak0l")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[center]WASD to move
+Left Click to Shotgun
+Right Click to Rifle[/center]"
+scroll_active = false
+
+[node name="Controls" type="RichTextLabel" parent="Controls"]
+show_behind_parent = true
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 260.0
+offset_bottom = 58.0
+theme_override_colors/default_color = Color(0.192157, 0.0196078, 0.117647, 1)
+theme_override_fonts/normal_font = ExtResource("2_lak0l")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[center]WASD to move
+Left Click to Shotgun
+Right Click to Rifle[/center]"
+scroll_active = false
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 106.0
+offset_top = 74.0
+offset_right = 150.0
+offset_bottom = 118.0
+script = ExtResource("3_hqpj2")
+
+[node name="Credits" type="RichTextLabel" parent="."]
+offset_left = -1.0
+offset_top = 2.0
+offset_right = 257.0
+offset_bottom = 58.0
+theme_override_fonts/normal_font = ExtResource("2_lak0l")
+theme_override_font_sizes/normal_font_size = 5
+bbcode_enabled = true
+text = "[center]Two Freshmen in a Trenchcoat Presents[/center]"
+scroll_active = false
+
+[node name="Credits" type="RichTextLabel" parent="Credits"]
+show_behind_parent = true
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 259.0
+offset_bottom = 57.0
+theme_override_colors/default_color = Color(0.835294, 0.235294, 0.415686, 1)
+theme_override_fonts/normal_font = ExtResource("2_lak0l")
+theme_override_font_sizes/normal_font_size = 5
+bbcode_enabled = true
+text = "[center]Two Freshmen in a Trenchcoat Presents[/center]"
+scroll_active = false
+
+[connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]
