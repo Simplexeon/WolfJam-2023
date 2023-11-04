@@ -1,4 +1,5 @@
 extends Node2D
+class_name MegaPyre
 
 var current_scale : float = 0.5;
 var max_scale : float = 2.5;
@@ -13,7 +14,6 @@ var pyre_increase_rate : float = 1.05;
 var shrinking : bool = false;
 
 func _ready() -> void:
-	print("here")
 	light.texture_scale = lerp(0.0, max_scale, current_scale);
 
 
@@ -22,7 +22,6 @@ func _physics_process(delta: float) -> void:
 	if(!shrinking):
 		return;
 	
-	print("Here");
 	light.texture_scale = lerp(0.0, max_scale, current_scale);
 	current_scale -= dim_rate * delta;
 	audio_player.max_distance = 200 * current_scale;

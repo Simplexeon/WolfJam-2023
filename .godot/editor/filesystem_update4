@@ -10,3 +10,4 @@ res://Player/player.tscn
 res://Player/player_character.tscn
 res://Objects/Transition.tscn
 res://Objects/Area2D.gd
+res://Player/player.gd
