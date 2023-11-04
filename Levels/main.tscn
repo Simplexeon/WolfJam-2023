@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dprabjvil2cku"]
+[gd_scene load_steps=10 format=3 uid="uid://dprabjvil2cku"]
 
 [ext_resource type="Script" path="res://Levels/main.gd" id="1_egfi3"]
 [ext_resource type="Script" path="res://Levels/Camera2D.gd" id="2_lh26t"]
 [ext_resource type="PackedScene" uid="uid://ba3rpsvyhb551" path="res://Levels/tile_map.tscn" id="2_v2rwh"]
 [ext_resource type="Script" path="res://Levels/EnemySpawner.gd" id="3_hjepc"]
 [ext_resource type="PackedScene" uid="uid://brjpsfcowvc7i" path="res://Player/player_character.tscn" id="4_h0qhc"]
+[ext_resource type="Texture2D" uid="uid://bvqm6pd521ix0" path="res://Art/player/crosshair.png" id="7_tgt3b"]
 [ext_resource type="PackedScene" uid="uid://mhpso4iyhojp" path="res://Objects/pyre.tscn" id="7_xiprn"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wc41l"]
@@ -123,3 +124,6 @@ theme_override_colors/default_color = Color(0.835294, 0.235294, 0.415686, 1)
 theme_override_fonts/normal_font = SubResource("SystemFont_dtk3u")
 theme_override_font_sizes/normal_font_size = 10
 text = "100"
+
+[node name="Crosshair" type="Sprite2D" parent="."]
+texture = ExtResource("7_tgt3b")
