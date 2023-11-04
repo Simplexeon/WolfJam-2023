@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 signal shoot_shake;
+signal enemy_dead;
 
 # Properties
 @export var Speed : float;
@@ -34,7 +35,7 @@ func set_state(value):
 	ScoreDisplay.text = str(value);
 	ScoreDisplay.get_child(0).text = str(value);
 
-var pyre_count : int = 0;
+var score_multiplier : float = 1.0;
 
 
 # Components
@@ -109,7 +110,8 @@ func GetMovementDirection() -> Vector2:
 
 
 func _on_enemy_died(death_pos : Vector2) -> void:
-	score += KillScore;
+	enemy_dead.emit();
+	score += KillScore * score_multiplier;
 
 func set_hp(new_value : int):
 	if(!is_node_ready()):
@@ -131,9 +133,19 @@ func set_hp(new_value : int):
 
 
 func _on_score_timer_timeout() -> void:
-	score += TimeScore;
+	score += TimeScore * score_multiplier;
 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body is Enemy:
 		HP -= 1;
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.get_parent() is MegaPyre:
+		score_multiplier = 3.0;
+
+
+func _on_hitbox_area_exited(area: Area2D) -> void:
+	if area.get_parent() is MegaPyre:
+		score_multiplier = 1.0;

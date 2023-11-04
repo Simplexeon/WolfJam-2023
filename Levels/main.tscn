@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dprabjvil2cku"]
+[gd_scene load_steps=18 format=3 uid="uid://dprabjvil2cku"]
 
 [ext_resource type="Script" path="res://Levels/main.gd" id="1_egfi3"]
 [ext_resource type="Script" path="res://Levels/Camera2D.gd" id="2_lh26t"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://c14toggpuntcs" path="res://SFX/wind4.wav" id="11_7vdhf"]
 [ext_resource type="Script" path="res://Levels/AudioStreamPlayer.gd" id="12_htfj0"]
 [ext_resource type="PackedScene" uid="uid://kwmuk2ov0cy8" path="res://Objects/Transition.tscn" id="13_dc3yx"]
+[ext_resource type="PackedScene" uid="uid://ijhe2w0jsu3g" path="res://Objects/megaPyre.tscn" id="14_6mfmg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wc41l"]
 light_mode = 1
@@ -156,5 +157,27 @@ stream = SubResource("AudioStreamRandomizer_67bli")
 volume_db = 3.0
 autoplay = true
 script = ExtResource("12_htfj0")
+
+[node name="MegaPyres" type="Node2D" parent="."]
+
+[node name="PyreSpot" type="Node2D" parent="MegaPyres"]
+position = Vector2(697, 400)
+
+[node name="Pyre" parent="MegaPyres/PyreSpot" instance=ExtResource("14_6mfmg")]
+
+[node name="PyreSpot2" type="Node2D" parent="MegaPyres"]
+position = Vector2(1425, 649)
+
+[node name="PyreSpot3" type="Node2D" parent="MegaPyres"]
+position = Vector2(884, 848)
+
+[node name="PyreSpot4" type="Node2D" parent="MegaPyres"]
+position = Vector2(254, 502)
+
+[node name="PyreSpot5" type="Node2D" parent="MegaPyres"]
+position = Vector2(499, 117)
+
+[node name="PyreSpot6" type="Node2D" parent="MegaPyres"]
+position = Vector2(1151, 198)
 
 [connection signal="finished" from="WindNoises" to="WindNoises" method="_on_finished"]
