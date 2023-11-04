@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dprabjvil2cku"]
+[gd_scene load_steps=17 format=3 uid="uid://dprabjvil2cku"]
 
 [ext_resource type="Script" path="res://Levels/main.gd" id="1_egfi3"]
 [ext_resource type="Script" path="res://Levels/Camera2D.gd" id="2_lh26t"]
@@ -12,8 +12,12 @@
 [ext_resource type="AudioStream" uid="uid://b80xar6ixb5lq" path="res://SFX/wind3.wav" id="10_ujnr0"]
 [ext_resource type="AudioStream" uid="uid://c14toggpuntcs" path="res://SFX/wind4.wav" id="11_7vdhf"]
 [ext_resource type="Script" path="res://Levels/AudioStreamPlayer.gd" id="12_htfj0"]
+[ext_resource type="PackedScene" uid="uid://kwmuk2ov0cy8" path="res://Objects/Transition.tscn" id="13_dc3yx"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wc41l"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xchgi"]
 light_mode = 1
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_67bli"]
@@ -38,13 +42,14 @@ color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 
 [node name="Crosshair" parent="." instance=ExtResource("2_v13pq")]
 
-[node name="PlayerCharacter" parent="." node_paths=PackedStringArray("ScoreDisplay", "Crosshair") instance=ExtResource("4_h0qhc")]
+[node name="PlayerCharacter" parent="." node_paths=PackedStringArray("ScoreDisplay", "Camera", "Crosshair") instance=ExtResource("4_h0qhc")]
 z_index = 1
 position = Vector2(919, 406)
 Speed = 130.0
 KillScore = 100
 TimeScore = 10
 ScoreDisplay = NodePath("../Camera2D/Score")
+Camera = NodePath("../Camera2D")
 Crosshair = NodePath("../Crosshair")
 HP = 4
 
@@ -106,6 +111,9 @@ position_smoothing_speed = 50.0
 script = ExtResource("2_lh26t")
 player = NodePath("../PlayerCharacter")
 smoothing = 0.9
+base_screen_shake = 0.5
+shooting_screen_shake = 5.0
+screen_shake_decay = 0.05
 
 [node name="Score" type="RichTextLabel" parent="Camera2D"]
 material = SubResource("CanvasItemMaterial_wc41l")
@@ -138,6 +146,10 @@ theme_override_colors/default_color = Color(0.835294, 0.235294, 0.415686, 1)
 theme_override_fonts/normal_font = ExtResource("7_ld664")
 theme_override_font_sizes/normal_font_size = 10
 text = "0"
+
+[node name="Transition" parent="Camera2D" instance=ExtResource("13_dc3yx")]
+material = SubResource("CanvasItemMaterial_xchgi")
+position = Vector2(-128, -128)
 
 [node name="WindNoises" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_67bli")

@@ -1,10 +1,14 @@
 extends CharacterBody2D
+class_name Player
+
+signal shoot_shake;
 
 # Properties
 @export var Speed : float;
 @export var KillScore : int;
 @export var TimeScore : int;
 @export var ScoreDisplay : RichTextLabel;
+@export var Camera : Camera2D;
 @export var Crosshair : Sprite2D;
 @export var HP : int : set = set_hp;
 
@@ -43,6 +47,8 @@ var pyre_count : int = 0;
 @onready var audio_player : AudioStreamPlayer2D = $AudioStreamPlayer2D;
 
 
+var death_transition_file : PackedScene = preload("res://Objects/Transition.tscn");
+
 
 func _ready() -> void:
 	score_timer.start();
@@ -76,8 +82,10 @@ func _physics_process(delta: float) -> void:
 	# Shoot
 	if(shoot):
 		gun.shoot(mouse_pos);
+		shoot_shake.emit();
 	if(rifle):
 		gun.rifle(mouse_pos);
+		shoot_shake.emit();
 
 
 ## Get the current movement direction on the player.
@@ -113,7 +121,10 @@ func set_hp(new_value : int):
 	invulnerability_timer.start();
 	if(HP == 0):
 		Score.end_score = score;
-		get_tree().change_scene_to_file("res://Levels/Game Over.tscn");
+		var transition_inst : Sprite2D = death_transition_file.instantiate();
+		transition_inst.initialize(true, "res://Levels/Game Over.tscn");
+		Camera.add_child(transition_inst);
+		transition_inst.global_position = Camera.global_position + Vector2(-128,-128);
 	if(!is_node_ready()):
 		return;
 	Crosshair.frame = new_value - 1;
