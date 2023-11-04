@@ -20,6 +20,7 @@ var mouse_pos : Vector2 = Vector2.ZERO;
 
 # Components
 @onready var gun : Node2D = $Gun;
+@onready var flank : Node2D = $Flank;
 
 
 func _physics_process(delta: float) -> void:

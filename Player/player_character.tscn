@@ -23,3 +23,20 @@ shape = SubResource("CircleShape2D_u2md2")
 
 [node name="Flank" type="Node2D" parent="."]
 position = Vector2(-46, 0)
+
+[node name="Vision" type="Node2D" parent="."]
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Vision"]
+position = Vector2(11, -3)
+radius = 20.0
+avoidance_layers = 2
+
+[node name="NavigationObstacle2D2" type="NavigationObstacle2D" parent="Vision"]
+position = Vector2(35, -1)
+radius = 50.0
+avoidance_layers = 2
+
+[node name="NavigationObstacle2D3" type="NavigationObstacle2D" parent="Vision"]
+position = Vector2(14, -2)
+radius = 30.0
+avoidance_layers = 2

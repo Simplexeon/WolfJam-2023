@@ -11,10 +11,10 @@ extends CharacterBody2D
 var spriteA : Texture2D = preload("res://Art/enemies/VampireA.png");
 var spriteB : Texture2D = preload("res://Art/enemies/VampireB.png");
 
-func initialize(player : CharacterBody2D, type : int) -> void:
+func initialize(player : CharacterBody2D, type : int, nav_map : RID) -> void:
 	
 	# Set AI
-	navigation.initialize(player, type);
+	navigation.initialize(player, type, nav_map);
 	
 	# Set sprite
 	if(round(randf()) == 1):

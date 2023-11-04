@@ -26,14 +26,14 @@ color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("4_h0qhc")]
 z_index = 1
-position = Vector2(117, 106)
+position = Vector2(242, 311)
 Speed = 130.0
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("3_hjepc")
 
 [node name="SpawnPoint" type="Node2D" parent="EnemySpawner"]
-position = Vector2(254, 199)
+position = Vector2(407, 383)
 
 [node name="Pyre" parent="." instance=ExtResource("7_xiprn")]
-position = Vector2(275, 107)
+position = Vector2(294, 387)

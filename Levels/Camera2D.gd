@@ -13,6 +13,7 @@ var game_ready : bool = false;
 ## Start following the player
 func _ready() -> void:
 	game_ready = true;
+	global_position = player.global_position;
 
 
 ## Follow the player

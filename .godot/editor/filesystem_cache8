@@ -1,9 +1,10 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1699069387
+::res://::1699075136
 export_presets.cfg::TextFile::-1::1699057743::0::1::::<><>::
 icon.svg::CompressedTexture2D::1057411483181488038::1699047171::1699047178::1::::<><>::
 README.md::TextFile::-1::1699047222::0::1::::<><>::
-::res://Art/::1699069534
+::res://Art/::1699075064
+pyre.png::CompressedTexture2D::5075206998135405985::1699075051::1699075064::1::::<><>::
 Tiles (2).png::CompressedTexture2D::310467117879986852::1699068345::1699068439::1::::<><>::
 Tiles (3).png::CompressedTexture2D::1497145789674115284::1699069534::1699069545::1::::<><>::
 Tiles.png::CompressedTexture2D::5666079521401109954::1699066644::1699066649::1::::<><>::
@@ -11,8 +12,9 @@ Tiles.png::CompressedTexture2D::5666079521401109954::1699066644::1699066649::1::
 miniboss.png::CompressedTexture2D::7158205789768606350::1699065490::1699065505::1::::<><>::
 VampireA.png::CompressedTexture2D::4752205818922040750::1699065490::1699065505::1::::<><>::
 VampireB.png::CompressedTexture2D::439835797834521447::1699065490::1699065505::1::::<><>::
-::res://Art/player/::1699068439
+::res://Art/player/::1699074747
 Gun.png::CompressedTexture2D::9096215711981157860::1699065646::1699065664::1::::<><>::
+gundoom.png::CompressedTexture2D::3003922594288902479::1699074520::1699074747::1::::<><>::
 player.png::CompressedTexture2D::2744186146904067069::1699061516::1699061525::1::::<><>::
 shrapnel.png::CompressedTexture2D::1017078335326770549::1699068345::1699068439::1::::<><>::
 ::res://Art/Prototype/::1699069230
@@ -24,19 +26,23 @@ PixelLight.png::CompressedTexture2D::5014282384437040101::1699067745::1699067750
 Player.png::CompressedTexture2D::6541491306499371359::1699057221::1699057224::1::::<><>::
 ::res://Autoloads/::1699066038
 create_node.gd::GDScript::-1::1699066038::0::1::::<>Node<>::
-::res://Enemies/::1699069503
-enemy.gd::GDScript::-1::1699060388::0::1::::<>CharacterBody2D<>::
-enemy.tscn::PackedScene::480661655660771747::1699069503::0::1::::<><>::res://Enemies/enemy.gd<>uid://b8yaeuw64wagc::::res://Art/enemies/VampireA.png<>uid://cdo7q7ah7wqif::::res://Art/Prototype/PixelLight.png
-::res://Levels/::1699069517
+::res://Enemies/::1699074489
+enemy.gd::GDScript::-1::1699073604::0::1::::<>CharacterBody2D<>::
+enemy.tscn::PackedScene::480661655660771747::1699074489::0::1::::<><>::res://Enemies/enemy.gd<>uid://b8yaeuw64wagc::::res://Art/enemies/VampireA.png<>uid://cdo7q7ah7wqif::::res://Art/Prototype/PixelLight.png<>res://Enemies/Navigation.gd
+Navigation.gd::GDScript::-1::1699073748::0::1::::<>Node2D<>::
+::res://Levels/::1699075051
 Camera2D.gd::GDScript::-1::1699059628::0::1::::<>Camera2D<>::
-gun.tscn::PackedScene::1139537428701955067::1699069350::0::1::::<><>::res://Player/Gun.gd<>uid://d2ujlxo21c70c
-main.gd::GDScript::-1::1699065029::0::1::::<>Node2D<>::
-main.tscn::PackedScene::8247191418793001016::1699069503::0::1::::<><>::uid://ckndod2ea2l0e::::res://Player/player.tscn<>res://Levels/Camera2D.gd<>uid://ba3rpsvyhb551::::res://Levels/tile_map.tscn<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png
-tile_map.tscn::PackedScene::2445283215553452998::1699069517::0::1::::<><>::uid://cmyxrcgnsvff3::::res://Art/Tiles.png
-::res://Player/::1699069503
+EnemySpawner.gd::GDScript::-1::1699075043::0::1::::<>Node2D<>::
+main.gd::GDScript::-1::1699072233::0::1::::<>Node2D<>::
+main.tscn::PackedScene::8247191418793001016::1699075043::0::1::::<><>::res://Levels/main.gd<>res://Levels/Camera2D.gd<>uid://ba3rpsvyhb551::::res://Levels/tile_map.tscn<>res://Levels/EnemySpawner.gd<>uid://brjpsfcowvc7i::::res://Player/player_character.tscn<>uid://mhpso4iyhojp::::res://Objects/pyre.tscn
+tile_map.tscn::PackedScene::2445283215553452998::1699075051::0::1::::<><>::uid://vlh1i6g6c0sm::::res://Art/Tiles (3).png
+::res://Objects/::1699074489
+pyre.tscn::PackedScene::857660447638669297::1699074489::0::1::::<><>::uid://covsm0gnri57k::::res://Art/Prototype/Light.png
+::res://Player/::1699074489
 Bullet.gd::GDScript::-1::1699069050::0::1::::<>Area2D<>::
-Bullet.tscn::PackedScene::1610788879775266589::1699069503::0::1::::<><>::res://Player/Bullet.gd<>uid://di33lr74gtgm7::::res://Art/Prototype/Fragment.png<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png
-Gun.gd::GDScript::-1::1699069358::0::1::::<>Node2D<>::
+Bullet.tscn::PackedScene::1610788879775266589::1699074489::0::1::::<><>::res://Player/Bullet.gd<>uid://di33lr74gtgm7::::res://Art/Prototype/Fragment.png<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png
+Gun.gd::GDScript::-1::1699070334::0::1::::<>Node2D<>::
+gun.tscn::PackedScene::1139537428701955067::1699074489::0::1::::<><>::res://Player/Gun.gd<>uid://d2ujlxo21c70c::::res://Art/player/Gun.png<>uid://cf0an68xw6fl::::res://Art/Prototype/MuzzleFlash.png
 player.gd::GDScript::-1::1699063424::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::5501774066124857114::1699069387::0::1::::<><>::res://Player/player.gd<>uid://qiaarkcs1nih::::res://Levels/gun.tscn<>uid://bfdklyykf7c0t::::res://Art/player/player.png
-player_character.tscn::PackedScene::3599153590880658328::1699069579::0::1::::<><>::
+player.tscn::PackedScene::5501774066124857114::1699069581::0::1::::<><>::res://Player/player.gd<>uid://qiaarkcs1nih::::res://Player/gun.tscn<>uid://bfdklyykf7c0t::::res://Art/player/player.png
+player_character.tscn::PackedScene::3599153590880658328::1699074489::0::1::::<><>::res://Player/player.gd<>uid://qiaarkcs1nih::::res://Player/gun.tscn<>uid://bfdklyykf7c0t::::res://Art/player/player.png
