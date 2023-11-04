@@ -18,6 +18,7 @@ var player : Player;
 # Files
 var light_dissipation_file : PackedScene = preload("res://Objects/LightDimmer.tscn");
 var pyre_file : PackedScene = preload("res://Objects/pyre.tscn");
+var death_yell_file : PackedScene = preload("res://Enemies/BossDeathYell.tscn");
 
 func initialize(set_player : CharacterBody2D) -> void:
 	player = set_player;
@@ -46,6 +47,10 @@ func damage() -> void:
 		var light_dissipation_inst = light_dissipation_file.instantiate();
 		get_parent().add_child(light_dissipation_inst);
 		light_dissipation_inst.initialize(0.5, 0.8);
+		
+		var death_yell_inst : AudioStreamPlayer2D = death_yell_file.instantiate();
+		get_parent().add_child(death_yell_inst);
+		death_yell_inst.global_position = global_position;
 		
 		var pyre_inst : StaticBody2D = pyre_file.instantiate();
 		get_parent().call_deferred("add_child", pyre_inst);

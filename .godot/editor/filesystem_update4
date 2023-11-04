@@ -21,3 +21,5 @@ res://Levels/EnemySpawner.gd
 res://Enemies/Chant.gd
 res://Enemies/BigEnemy.gd
 res://Enemies/enemy.gd
+res://Enemies/BossDeathYell.gd
+res://Enemies/BossDeathYell.tscn
