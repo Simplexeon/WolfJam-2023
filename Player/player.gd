@@ -79,7 +79,8 @@ func _physics_process(delta: float) -> void:
 	# Shoot
 	if(shoot):
 		gun.shoot(mouse_pos);
-	
+	if(rifle):
+		gun.rifle(mouse_pos);
 
 
 ## Get the current movement direction on the player.
@@ -116,7 +117,7 @@ func set_hp(new_value : int):
 	if(!is_node_ready()):
 		HP = max(new_value, 0);
 		return;
-	if(invulnerability_timer.time_left > 0):
+	if(!invulnerability_timer.is_stopped()):
 		return;
 	HP = max(new_value, 0);
 	invulnerability_timer.start();

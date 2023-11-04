@@ -40,4 +40,8 @@ texture = ExtResource("3_s4ft5")
 wait_time = 0.1
 one_shot = true
 
+[node name="RifleCDTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
 [connection signal="timeout" from="MuzzleFlashTimer" to="." method="_on_muzzle_flash_timer_timeout"]
