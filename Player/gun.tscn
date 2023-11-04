@@ -24,9 +24,16 @@ one_shot = true
 [node name="GunHead" type="Node2D" parent="."]
 position = Vector2(24, 0)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="MuzzleFlash" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(52, 0)
 rotation = -1.5708
-energy = 7.62
+energy = 9.77
 shadow_enabled = true
 texture = ExtResource("3_s4ft5")
+
+[node name="MuzzleFlashTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="MuzzleFlashTimer" to="." method="_on_muzzle_flash_timer_timeout"]

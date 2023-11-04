@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ckndod2ea2l0e"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_1gywm"]
-[ext_resource type="PackedScene" uid="uid://qiaarkcs1nih" path="res://Levels/gun.tscn" id="2_ifvny"]
+[ext_resource type="PackedScene" uid="uid://qiaarkcs1nih" path="res://Player/gun.tscn" id="2_ifvny"]
 [ext_resource type="Texture2D" uid="uid://bfdklyykf7c0t" path="res://Art/player/player.png" id="2_slxed"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_esqfs"]

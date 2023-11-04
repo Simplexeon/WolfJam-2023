@@ -11,6 +11,8 @@ extends Node2D
 # Components
 @onready var cooldown_timer : Timer = $CDTimer;
 @onready var gun_head : Node2D = $GunHead;
+@onready var muzzle_flash : PointLight2D = $MuzzleFlash;
+@onready var muzzle_flash_timer : Timer = $MuzzleFlashTimer;
 var root_node : Node2D;
 
 var bullet_scene : PackedScene = preload("res://Player/Bullet.tscn");
@@ -18,6 +20,7 @@ var bullet_scene : PackedScene = preload("res://Player/Bullet.tscn");
 
 func _ready() -> void:
 	root_node = get_tree().current_scene;
+	muzzle_flash.visible = false;
 
 
 func shoot(mouse_pos : Vector2) -> void:
@@ -48,5 +51,13 @@ func shoot(mouse_pos : Vector2) -> void:
 		# Increment the loop
 		i += 1;
 	
+	# Muzzle flash
+	muzzle_flash.visible = true;
+	muzzle_flash_timer.start();
+	
 	# Start cooldown
 	cooldown_timer.start();
+
+
+func _on_muzzle_flash_timer_timeout() -> void:
+	muzzle_flash.visible = false;
