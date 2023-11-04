@@ -1,12 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://dprabjvil2cku"]
+[gd_scene load_steps=3 format=3 uid="uid://dprabjvil2cku"]
 
 [ext_resource type="PackedScene" uid="uid://ckndod2ea2l0e" path="res://Player/player.tscn" id="1_luk4o"]
+[ext_resource type="Script" path="res://Levels/Camera2D.gd" id="2_lh26t"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_luk4o")]
+Speed = 40.0
 
 [node name="ShadingController" type="Node2D" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="ShadingController"]
 color = Color(0.0745098, 0.00784314, 0.0313726, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position_smoothing_speed = 50.0
+script = ExtResource("2_lh26t")
+player = NodePath("../Player")
+smoothing = 0.6
