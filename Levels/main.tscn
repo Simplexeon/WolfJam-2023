@@ -1,17 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dprabjvil2cku"]
+[gd_scene load_steps=5 format=3 uid="uid://dprabjvil2cku"]
 
 [ext_resource type="PackedScene" uid="uid://ckndod2ea2l0e" path="res://Player/player.tscn" id="1_luk4o"]
 [ext_resource type="Script" path="res://Levels/Camera2D.gd" id="2_lh26t"]
+[ext_resource type="PackedScene" uid="uid://g33or5mpkwtf" path="res://Enemies/enemy.tscn" id="3_6a78b"]
+[ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="4_6jhjs"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_luk4o")]
+position = Vector2(-7, 12)
 Speed = 40.0
-
-[node name="ShadingController" type="Node2D" parent="."]
-
-[node name="CanvasModulate" type="CanvasModulate" parent="ShadingController"]
-color = Color(0.0745098, 0.00784314, 0.0313726, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
@@ -21,3 +19,28 @@ position_smoothing_speed = 50.0
 script = ExtResource("2_lh26t")
 player = NodePath("../Player")
 smoothing = 0.6
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("3_6a78b")]
+position = Vector2(17, 16)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("3_6a78b")]
+position = Vector2(-73, 59)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("3_6a78b")]
+position = Vector2(26, 96)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("3_6a78b")]
+position = Vector2(174, 150)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 4.19
+shadow_enabled = true
+shadow_color = Color(0.0745098, 0.00784314, 0.0313726, 1)
+texture = ExtResource("4_6jhjs")
+
+[node name="ShadingController" type="Node2D" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="ShadingController"]
+color = Color(0.870588, 0.870588, 0.870588, 1)

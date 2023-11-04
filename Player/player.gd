@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	# Rotate the player to face the mouse
-	rotation = global_position.angle_to(mouse_pos);
+	global_rotation = (mouse_pos - global_position).angle();
 	
 	# Move the player
 	velocity = move_direction * Speed;

@@ -2,3 +2,5 @@ res://Player/player.tscn
 res://Player/player.gd
 res://Levels/main.tscn
 res://Levels/Camera2D.gd
+res://Enemies/enemy.tscn
+res://Enemies/enemy.gd
