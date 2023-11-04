@@ -14,7 +14,6 @@ blend_mode = 1
 light_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wq8hy"]
-blend_mode = 1
 light_mode = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u2md2"]
@@ -45,3 +44,14 @@ position = Vector2(-46, 0)
 energy = 0.4
 texture = ExtResource("4_ntn0w")
 texture_scale = 0.5
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="CameraPos" type="Node2D" parent="."]
+position = Vector2(72, 0)
+
+[node name="KillCountTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

@@ -33,8 +33,6 @@ func shoot(mouse_pos : Vector2) -> void:
 	var i : int = 0;
 	while(i < bullet_count):
 		
-		print("made bullet");
-		
 		# Get angle variance
 		var angle : float = lerp(spread * -1, spread, randf());
 		var bullet_dir : Vector2 = (gun_head.global_position - global_position).normalized();

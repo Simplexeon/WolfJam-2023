@@ -10,12 +10,6 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_egfi3")
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-position_smoothing_speed = 50.0
-script = ExtResource("2_lh26t")
-player = NodePath("../PlayerCharacter")
-smoothing = 0.9
-
 [node name="ShadingController" type="Node2D" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="ShadingController"]
@@ -25,6 +19,14 @@ color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 z_index = 1
 position = Vector2(242, 311)
 Speed = 130.0
+KillScore = 100
+TimeScore = 10
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position_smoothing_speed = 50.0
+script = ExtResource("2_lh26t")
+player = NodePath("../PlayerCharacter")
+smoothing = 0.9
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("3_hjepc")

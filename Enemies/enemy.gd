@@ -51,7 +51,7 @@ func damage() -> void:
 	damage_light.visible = true;
 	damage_timer.start();
 	if(hp < 1):
-		died.emit();
+		died.emit(global_position);
 		queue_free();
 
 

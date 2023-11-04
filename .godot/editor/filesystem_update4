@@ -14,3 +14,4 @@ res://Objects/LightDimmer.gd
 res://Objects/pyre.gd
 res://Player/player.gd
 res://Enemies/Navigation.gd
+res://Levels/Camera2D.gd

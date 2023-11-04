@@ -1,6 +1,6 @@
-PointLight2D
 Timer
 Node2D
+PointLight2D
 NavigationObstacle2D
 NavigationRegion2D
 CollisionShape2D

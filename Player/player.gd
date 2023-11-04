@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 # Properties
 @export var Speed : float;
+@export var KillScore : int;
+@export var TimeScore : int;
 
 
 # Movement directions
@@ -18,9 +20,25 @@ var melee : bool = false;
 var mouse_pos : Vector2 = Vector2.ZERO;
 
 
+# Scoring
+var score : int = 0;
+var pyre_count : int = 0;
+
+
 # Components
 @onready var gun : Node2D = $Gun;
 @onready var flank : Node2D = $Flank;
+@onready var score_timer : Timer = $ScoreTimer;
+@onready var camera_pos : Node2D = $CameraPos;
+@onready var kill_count_timer : Timer = $KillCountTimer;
+
+
+# Files
+var pyre_file : PackedScene = preload("res://Objects/pyre.tscn");
+
+
+func _ready() -> void:
+	score_timer.start();
 
 
 func _physics_process(delta: float) -> void:
@@ -69,4 +87,22 @@ func GetMovementDirection() -> Vector2:
 
 
 func _on_enemy_died(death_pos : Vector2) -> void:
-	print("enemy died!");
+	score += KillScore;
+	
+	if(kill_count_timer.wait_time <= 1):
+		pyre_count += 1;
+		kill_count_timer.start();
+	
+	if(pyre_count >= 5):
+		var pyre_inst : StaticBody2D = pyre_file.instantiate();
+		print("make pyre");
+		get_parent().call_deferred("add_child", pyre_inst);
+		pyre_inst.global_position = death_pos;
+		pyre_inst.initialize(1.0, 0.20);
+		pyre_count = 0;
+		
+
+
+func _on_score_timer_timeout() -> void:
+	score += TimeScore;
+	print(str(score));

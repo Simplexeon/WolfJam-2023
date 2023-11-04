@@ -9,8 +9,11 @@ var dim_rate : float = 1.0;
 
 func initialize(set_texture_size : float, set_dim_rate : float = dim_rate):
 	max_scale = set_texture_size;
-	light.texture_scale = set_texture_size;
 	dim_rate = set_dim_rate;
+
+
+func _ready() -> void:
+	light.texture_scale = max_scale;
 
 
 func _physics_process(delta: float) -> void:
