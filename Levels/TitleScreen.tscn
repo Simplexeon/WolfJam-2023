@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dwj85ct5v8b13"]
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

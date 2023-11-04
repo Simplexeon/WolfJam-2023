@@ -13,3 +13,4 @@ res://Enemies/Navigation.gd
 res://Levels/Game Over.tscn
 res://Autoloads/score.gd
 res://Levels/ScoreLabel.gd
+res://Levels/TitleScreen.tscn
