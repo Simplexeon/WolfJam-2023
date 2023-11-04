@@ -7,3 +7,9 @@ res://Objects/pyre.tscn
 res://Levels/tile_map.tscn
 res://Objects/LightDimmer.tscn
 res://Player/player.gd
+res://Levels/EnemySpawner.gd
+res://Enemies/enemy.gd
+res://Enemies/Navigation.gd
+res://Levels/Game Over.tscn
+res://Autoloads/score.gd
+res://Levels/ScoreLabel.gd

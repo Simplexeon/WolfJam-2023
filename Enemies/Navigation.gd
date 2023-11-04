@@ -7,11 +7,8 @@ var player : CharacterBody2D;
 var movement_dir : Vector2 = Vector2.ZERO;
 var type : int = 0;
 
-func initialize(set_player : CharacterBody2D, set_type : int, nav_map : RID) -> void:
+func initialize(set_player : CharacterBody2D, set_type : int) -> void:
 	player = set_player;
-	agent.set_navigation_map(nav_map);
-	if(set_type > 0):
-		agent.set_navigation_layer_value(2, true);
 	
 	timer.start();
 

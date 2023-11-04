@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://brjpsfcowvc7i"]
+[gd_scene load_steps=10 format=3 uid="uid://brjpsfcowvc7i"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_jk8fe"]
 [ext_resource type="PackedScene" uid="uid://qiaarkcs1nih" path="res://Player/gun.tscn" id="2_87qi1"]
@@ -17,6 +17,9 @@ light_mode = 1
 light_mode = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u2md2"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_801rc"]
 radius = 9.05539
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
@@ -33,14 +36,13 @@ rotation = -1.5708
 texture = ExtResource("3_mldyy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(4, -5)
 shape = SubResource("CircleShape2D_u2md2")
 
 [node name="Flank" type="Node2D" parent="."]
 position = Vector2(-46, 0)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, 1)
 energy = 0.4
 texture = ExtResource("4_ntn0w")
 texture_scale = 0.5
@@ -54,4 +56,13 @@ position = Vector2(100, 0)
 wait_time = 0.2
 one_shot = true
 
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_801rc")
+
+[node name="InvulnerabilityTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

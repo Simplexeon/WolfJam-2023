@@ -51,7 +51,7 @@ texture = ExtResource("3_k174r")
 script = ExtResource("4_igxrk")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
-path_max_distance = 500.0
+path_max_distance = 3000.0
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 20.2

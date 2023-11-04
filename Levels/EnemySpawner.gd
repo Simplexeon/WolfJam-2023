@@ -42,8 +42,6 @@ func _game_ready(new_player : CharacterBody2D, new_tilemap : TileMap) -> void:
 	
 	next_wave_points = randi_range(wave_points_minimum, wave_points_maximum);
 	
-	navigation_map = tilemap.get_navigation_map(0);
-	
 
 
 func _physics_process(delta: float) -> void:
@@ -56,7 +54,7 @@ func create_enemy(type : EnemyType) -> void:
 	var enemy_inst : CharacterBody2D = enemy_file.instantiate();
 	root_node.add_child(enemy_inst);
 	enemy_inst.global_position = get_child(randi_range(0, spawn_count - 1)).global_position;
-	enemy_inst.initialize(player, type, navigation_map);
+	enemy_inst.initialize(player, type);
 
 
 func calculate_spawn() -> void:
