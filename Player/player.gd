@@ -7,10 +7,6 @@ extends CharacterBody2D
 @export var ScoreDisplay : RichTextLabel;
 @export var Crosshair : Sprite2D;
 @export var HP : int : set = set_hp;
-func set_hp(new_value : int):
-	HP = max(new_value, 0);
-	Crosshair.frame = new_value;
-
 
 
 # Movement directions
@@ -43,6 +39,7 @@ var pyre_count : int = 0;
 @onready var score_timer : Timer = $ScoreTimer;
 @onready var camera_pos : Node2D = $CameraPos;
 @onready var kill_count_timer : Timer = $KillCountTimer;
+@onready var invulnerability_timer : Timer = $InvulnerabilityTimer;
 
 
 # Files
@@ -108,7 +105,6 @@ func _on_enemy_died(death_pos : Vector2) -> void:
 	
 	if(pyre_count >= 5):
 		var pyre_inst : StaticBody2D = pyre_file.instantiate();
-		print("make pyre");
 		get_parent().call_deferred("add_child", pyre_inst);
 		pyre_inst.global_position = death_pos;
 		pyre_inst.initialize(1.0, 0.20);
@@ -116,6 +112,26 @@ func _on_enemy_died(death_pos : Vector2) -> void:
 		
 
 
+func set_hp(new_value : int):
+	if(!is_node_ready()):
+		HP = max(new_value, 0);
+		return;
+	if(invulnerability_timer.time_left > 0):
+		return;
+	HP = max(new_value, 0);
+	invulnerability_timer.start();
+	if(HP == 0):
+		Score.end_score = score;
+		get_tree().change_scene_to_file("res://Levels/Game Over.tscn");
+	if(!is_node_ready()):
+		return;
+	Crosshair.frame = new_value - 1;
+
+
 func _on_score_timer_timeout() -> void:
 	score += TimeScore;
-	print(str(score));
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body is Enemy:
+		HP -= 1;

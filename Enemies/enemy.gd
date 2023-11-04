@@ -19,10 +19,10 @@ signal died(death_pos : Vector2);
 var spriteA : Texture2D = preload("res://Art/enemies/VampireA.png");
 var spriteB : Texture2D = preload("res://Art/enemies/VampireB.png");
 
-func initialize(player : CharacterBody2D, type : int, nav_map : RID) -> void:
+func initialize(player : CharacterBody2D, type : int) -> void:
 	
 	# Set AI
-	navigation.initialize(player, type, nav_map);
+	navigation.initialize(player, type);
 	
 	# Connect signals
 	died.connect(player._on_enemy_died);

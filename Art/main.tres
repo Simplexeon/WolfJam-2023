@@ -1,0 +1,4 @@
+[gd_resource type="SystemFont" format=3 uid="uid://bx32v3dw3iu1x"]
+
+[resource]
+font_names = PackedStringArray("QuinqueFive")

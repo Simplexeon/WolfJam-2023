@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 CreateNode="*res://Autoloads/create_node.gd"
+Score="*res://Autoloads/score.gd"
 
 [display]
 
