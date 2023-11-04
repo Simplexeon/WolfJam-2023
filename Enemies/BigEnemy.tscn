@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg1ul7ay8vwmr"]
+[gd_scene load_steps=14 format=3 uid="uid://bg1ul7ay8vwmr"]
 
 [ext_resource type="Script" path="res://Enemies/BigEnemy.gd" id="1_68ub6"]
-[ext_resource type="Texture2D" uid="uid://c88qurxfty63k" path="res://Art/enemies/miniboss.png" id="2_2k7tq"]
+[ext_resource type="Texture2D" uid="uid://bmled7ncfbeln" path="res://Art/enemies/elknew.png" id="2_kwjhm"]
 [ext_resource type="Texture2D" uid="uid://cdo7q7ah7wqif" path="res://Art/Prototype/PixelLight.png" id="3_ny6u0"]
 [ext_resource type="Script" path="res://Enemies/Navigation.gd" id="4_ail45"]
 [ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="5_tmnjc"]
+[ext_resource type="Script" path="res://Enemies/ElkSounds.gd" id="6_1or4l"]
+[ext_resource type="AudioStream" uid="uid://c840gl83kij2" path="res://SFX/elksound(spawn).wav" id="6_qkryu"]
+[ext_resource type="AudioStream" uid="uid://csg1nj2aiq6gt" path="res://SFX/elksounddie.wav" id="7_pb5i4"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4nicl"]
 
@@ -12,7 +15,19 @@
 polygon = PackedVector2Array(-16.0001, -15.9999, 15.9999, -16.0001, 16.0001, 15.9999, -15.9999, 16.0001)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7xnld"]
-radius = 15.0333
+radius = 10.0499
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fwrjg"]
+streams_count = 2
+random_pitch = 1.06
+random_volume_offset_db = 15.0
+stream_0/stream = ExtResource("6_qkryu")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_pb5i4")
+stream_1/weight = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r78se"]
+radius = 349.006
 
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 1
@@ -23,7 +38,7 @@ hp = 10
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_4nicl")
 rotation = 1.5708
-texture = ExtResource("2_2k7tq")
+texture = ExtResource("2_kwjhm")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite2D"]
 show_behind_parent = true
@@ -46,6 +61,48 @@ texture = ExtResource("3_ny6u0")
 
 [node name="PointLight2D2" type="PointLight2D" parent="GlowingEyes"]
 position = Vector2(0, 3)
+scale = Vector2(2, 1)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 4.18
+texture = ExtResource("3_ny6u0")
+
+[node name="PointLight2D3" type="PointLight2D" parent="GlowingEyes"]
+position = Vector2(4, 15)
+scale = Vector2(2, 1)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 4.18
+texture = ExtResource("3_ny6u0")
+
+[node name="PointLight2D4" type="PointLight2D" parent="GlowingEyes"]
+position = Vector2(4, 11)
+scale = Vector2(2, 1)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 4.18
+texture = ExtResource("3_ny6u0")
+
+[node name="PointLight2D5" type="PointLight2D" parent="GlowingEyes"]
+position = Vector2(4, 7)
+scale = Vector2(2, 1)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 4.18
+texture = ExtResource("3_ny6u0")
+
+[node name="PointLight2D6" type="PointLight2D" parent="GlowingEyes"]
+position = Vector2(4, -7)
+scale = Vector2(2, 1)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 4.18
+texture = ExtResource("3_ny6u0")
+
+[node name="PointLight2D7" type="PointLight2D" parent="GlowingEyes"]
+position = Vector2(4, -11)
+scale = Vector2(2, 1)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 4.18
+texture = ExtResource("3_ny6u0")
+
+[node name="PointLight2D8" type="PointLight2D" parent="GlowingEyes"]
+position = Vector2(4, -15)
 scale = Vector2(2, 1)
 color = Color(0.72549, 0, 0.270588, 1)
 energy = 4.18
@@ -74,5 +131,19 @@ texture_scale = 0.2
 wait_time = 0.15
 one_shot = true
 
+[node name="ElkSounds" type="Area2D" parent="."]
+script = ExtResource("6_1or4l")
+
+[node name="GremlinMaxing" type="AudioStreamPlayer2D" parent="ElkSounds"]
+stream = SubResource("AudioStreamRandomizer_fwrjg")
+volume_db = 15.0
+max_distance = 400.0
+attenuation = 2.37841
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElkSounds"]
+shape = SubResource("CircleShape2D_r78se")
+
 [connection signal="timeout" from="Navigation/NavigationTimer" to="Navigation" method="_on_navigation_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
+[connection signal="body_entered" from="ElkSounds" to="ElkSounds" method="_on_body_entered"]
+[connection signal="body_exited" from="ElkSounds" to="ElkSounds" method="_on_body_exited"]

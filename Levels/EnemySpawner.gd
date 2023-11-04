@@ -8,13 +8,13 @@ var tilemap : TileMap;
 var spawn_count : int;
 var points : float = 6.0;
 var points_per_sec : float = 0.3;
-var point_growth : float = 0.005;
+var point_growth : float = 0.01;
 var basic_cost : int = 1;
 var flanker_cost : int = 2;
 
 # Point shop vars
-var wave_points_minimum : int = 6;
-var wave_points_maximum : int = 13;
+var wave_points_minimum : float = 6.0;
+var wave_points_maximum : float = 6.0;
 var next_wave_points : int = 0;
 
 
@@ -48,6 +48,7 @@ func _game_ready(new_player : CharacterBody2D, new_tilemap : TileMap) -> void:
 func _physics_process(delta: float) -> void:
 	points += points_per_sec * delta;
 	points_per_sec = points_per_sec * (1 + point_growth * delta);
+	wave_points_maximum += (player.score / 1000) * delta;
 	calculate_spawn();
 
 
@@ -67,11 +68,11 @@ func calculate_spawn() -> void:
 	
 	if(points > next_wave_points):
 		while(points > 0):
-			if(points > 2 and randf() > .85):
+			if(points > 4 and randf() > .75):
 				create_enemy(EnemyType.BIG);
-				points -= 2;
+				points -= 4;
 				continue;
 			create_enemy(EnemyType.BASIC);
 			points -= 1;
 		
-		next_wave_points = randi_range(wave_points_minimum, wave_points_maximum);
+		next_wave_points = randi_range(int(wave_points_minimum), int(wave_points_maximum));

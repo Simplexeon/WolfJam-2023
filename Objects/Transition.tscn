@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://kwmuk2ov0cy8"]
+
+[ext_resource type="Texture2D" uid="uid://csxksrfpfddg" path="res://Art/Transitions/FtoC.tres" id="1_qj1v5"]
+[ext_resource type="Script" path="res://Objects/Transition.gd" id="1_r5uqw"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ijtk5"]
+light_mode = 1
+
+[node name="Transition" type="Sprite2D"]
+z_index = 10
+material = SubResource("CanvasItemMaterial_ijtk5")
+scale = Vector2(2, 2)
+texture = ExtResource("1_qj1v5")
+offset = Vector2(64, 64)
+script = ExtResource("1_r5uqw")
