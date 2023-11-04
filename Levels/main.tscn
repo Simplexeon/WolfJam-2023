@@ -8,7 +8,7 @@
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_luk4o")]
-position = Vector2(-15, 1)
+position = Vector2(-7, 12)
 Speed = 40.0
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -35,10 +35,12 @@ position = Vector2(26, 96)
 position = Vector2(174, 150)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-energy = 4.49
+energy = 4.19
 shadow_enabled = true
+shadow_color = Color(0.0745098, 0.00784314, 0.0313726, 1)
 texture = ExtResource("4_6jhjs")
 
 [node name="ShadingController" type="Node2D" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="ShadingController"]
+color = Color(0.870588, 0.870588, 0.870588, 1)
