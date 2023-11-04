@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://cd6dlffsgt46f"]
+
+[ext_resource type="AudioStream" uid="uid://bwneep564loc" path="res://SFX/vampiredeath.wav" id="1_l068u"]
+[ext_resource type="AudioStream" uid="uid://d1scr1ylm8f5w" path="res://SFX/vampiredeath2.wav" id="2_h2go4"]
+[ext_resource type="AudioStream" uid="uid://ci46sryjx73fx" path="res://SFX/vampiredeath3.wav" id="3_3hv0n"]
+[ext_resource type="AudioStream" uid="uid://b1udssebxr8dw" path="res://SFX/vampiredeath4.wav" id="4_gr0o6"]
+[ext_resource type="AudioStream" uid="uid://d3m55mkgrdd2p" path="res://SFX/vampiredeath5.wav" id="5_wu0jn"]
+[ext_resource type="Script" path="res://Enemies/EnemyDeathSound.gd" id="6_cqckb"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pryda"]
+streams_count = 5
+random_pitch = 1.3
+random_volume_offset_db = 7.0
+stream_0/stream = ExtResource("1_l068u")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_h2go4")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_3hv0n")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_gr0o6")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_wu0jn")
+stream_4/weight = 1.0
+
+[node name="EnemyDeathSound" type="AudioStreamPlayer2D"]
+stream = SubResource("AudioStreamRandomizer_pryda")
+autoplay = true
+max_distance = 400.0
+attenuation = 5.65685
+script = ExtResource("6_cqckb")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

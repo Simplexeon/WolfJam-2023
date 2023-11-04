@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://brjpsfcowvc7i"]
+[gd_scene load_steps=11 format=3 uid="uid://brjpsfcowvc7i"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_jk8fe"]
 [ext_resource type="PackedScene" uid="uid://qiaarkcs1nih" path="res://Player/gun.tscn" id="2_87qi1"]
 [ext_resource type="Texture2D" uid="uid://bfdklyykf7c0t" path="res://Art/player/player.png" id="3_mldyy"]
 [ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="4_ntn0w"]
+[ext_resource type="AudioStream" uid="uid://cepgcsykah78a" path="res://SFX/Playerwalk.wav" id="5_q7m1m"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kgwk4"]
 blend_mode = 1
@@ -63,6 +64,11 @@ shape = SubResource("CircleShape2D_801rc")
 
 [node name="InvulnerabilityTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_q7m1m")
+volume_db = 10.0
+attenuation = 2.82843
 
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

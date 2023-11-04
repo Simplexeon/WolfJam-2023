@@ -29,12 +29,7 @@ func initialize(start_pos : Vector2, bullet_dir : Vector2, bullet_speed : float,
 	direction = bullet_dir;
 	speed = bullet_speed;
 	
-	# Rotation
-	rotation_speed = lerp(min_rotation_speed, max_rotation_speed, randf());
-	rotation_dir = 1 * (-1 * randi_range(0, 1));
-	
-	# Sprite
-	sprite.frame = randi_range(0, 3);
+	global_rotation = direction.angle();
 	
 	# Finalize
 	initialized = true;
@@ -50,9 +45,6 @@ func _physics_process(delta: float) -> void:
 	
 	# Move
 	global_position += direction * speed * delta;
-	
-	# Rotate
-	global_rotation_degrees += rotation_speed * float(rotation_dir) * delta;
 
 
 ## Delete the bullet
@@ -67,6 +59,7 @@ func _on_body_entered(body: Node2D) -> void:
 		queue_free();
 		return;
 	if(body.has_method("damage")):
+		body.damage();
 		body.damage();
 		make_light();
 		queue_free();

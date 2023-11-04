@@ -17,3 +17,15 @@ res://Levels/TitleScreen.tscn
 res://Levels/StartButton.gd
 res://Levels/ReplayButton.gd
 res://Levels/Game Over.gd
+res://Player/Gun.gd
+res://Player/RifleBullet.tscn
+res://Player/RifleBullet.gd
+res://Enemies/BigEnemy.tscn
+res://Enemies/BigEnemy.gd
+res://Player/Bullet.gd
+res://Player/player.tscn
+res://Objects/pyre.gd
+res://Objects/crosshair.tscn
+res://Objects/crosshair.gd
+res://Enemies/EnemyDeathSound.gd
+res://Enemies/EnemyDeathSound.tscn

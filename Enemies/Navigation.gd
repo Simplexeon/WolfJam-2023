@@ -19,4 +19,7 @@ func _on_navigation_timer_timeout() -> void:
 	agent.target_position = player.global_position;
 	
 	movement_dir = (agent.get_next_path_position() - global_position).normalized();
+	
+	if(!agent.is_target_reachable()):
+		get_parent().global_position = get_parent().get_parent().get_parent().get_child(randi_range(0,15)).global_position;
 

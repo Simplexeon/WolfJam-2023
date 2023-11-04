@@ -27,6 +27,7 @@ Score="*res://Autoloads/score.gd"
 window/size/viewport_width=256
 window/size/viewport_height=256
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://Art/Prototype/Blank.png"
 
 [input]
 
