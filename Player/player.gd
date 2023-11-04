@@ -18,6 +18,10 @@ var melee : bool = false;
 var mouse_pos : Vector2 = Vector2.ZERO;
 
 
+# Components
+@onready var gun : Node2D = $Gun;
+
+
 func _physics_process(delta: float) -> void:
 	
 	# Get keyboard input
@@ -42,6 +46,10 @@ func _physics_process(delta: float) -> void:
 	# Move the player
 	velocity = move_direction * Speed;
 	move_and_slide();
+	
+	# Shoot
+	if(shoot):
+		gun.shoot(mouse_pos);
 	
 
 
