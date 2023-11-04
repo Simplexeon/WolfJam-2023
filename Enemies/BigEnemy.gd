@@ -17,6 +17,7 @@ signal died(death_pos : Vector2);
 
 # Files
 var light_dissipation_file : PackedScene = preload("res://Objects/LightDimmer.tscn");
+var pyre_file : PackedScene = preload("res://Objects/pyre.tscn");
 
 func initialize(player : CharacterBody2D, type : int) -> void:
 	
@@ -48,6 +49,11 @@ func damage() -> void:
 		var light_dissipation_inst = light_dissipation_file.instantiate();
 		get_parent().add_child(light_dissipation_inst);
 		light_dissipation_inst.initialize(0.5, 0.8);
+		
+		var pyre_inst : StaticBody2D = pyre_file.instantiate();
+		get_parent().call_deferred("add_child", pyre_inst);
+		pyre_inst.global_position = global_position;
+		pyre_inst.initialize(1.5, 0.20);
 		
 		died.emit(global_position);
 		queue_free();

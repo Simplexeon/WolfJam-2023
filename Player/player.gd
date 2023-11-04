@@ -43,9 +43,6 @@ var pyre_count : int = 0;
 @onready var audio_player : AudioStreamPlayer2D = $AudioStreamPlayer2D;
 
 
-# Files
-var pyre_file : PackedScene = preload("res://Objects/pyre.tscn");
-
 
 func _ready() -> void:
 	score_timer.start();
@@ -105,19 +102,6 @@ func GetMovementDirection() -> Vector2:
 
 func _on_enemy_died(death_pos : Vector2) -> void:
 	score += KillScore;
-	
-	if(kill_count_timer.wait_time <= 1):
-		pyre_count += 1;
-		kill_count_timer.start();
-	
-	if(pyre_count >= 5):
-		var pyre_inst : StaticBody2D = pyre_file.instantiate();
-		get_parent().call_deferred("add_child", pyre_inst);
-		pyre_inst.global_position = death_pos;
-		pyre_inst.initialize(1.0, 0.20);
-		pyre_count = 0;
-		
-
 
 func set_hp(new_value : int):
 	if(!is_node_ready()):
