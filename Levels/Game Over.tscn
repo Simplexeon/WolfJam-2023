@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://Levels/ScoreLabel.gd" id="2_a5kjj"]
 [ext_resource type="Texture2D" uid="uid://cnbodwes3cv46" path="res://Art/game over background (1).png" id="2_e5ae1"]
 [ext_resource type="Script" path="res://Levels/ReplayButton.gd" id="3_2ynld"]
-[ext_resource type="Texture2D" uid="uid://7kmscwv805qe" path="res://Art/restart button unpressed.png" id="5_bny2w"]
-[ext_resource type="Texture2D" uid="uid://ca77on8ci8c50" path="res://Art/restart button pressed.png" id="6_pfj2x"]
+[ext_resource type="Texture2D" uid="uid://b61h2q7ibm8ku" path="res://Art/retry clicked.png" id="5_k0b8n"]
+[ext_resource type="Texture2D" uid="uid://dp86h6qo7sy2g" path="res://Art/retry.png" id="6_kje3e"]
 
 [node name="Game Over" type="Node2D"]
 script = ExtResource("1_uy6tv")
@@ -154,8 +154,9 @@ offset_left = 98.0
 offset_top = 138.0
 offset_right = 162.0
 offset_bottom = 202.0
-texture_normal = ExtResource("5_bny2w")
-texture_pressed = ExtResource("6_pfj2x")
+texture_normal = ExtResource("5_k0b8n")
+texture_pressed = ExtResource("6_kje3e")
+texture_hover = ExtResource("6_kje3e")
 script = ExtResource("3_2ynld")
 
 [connection signal="pressed" from="ReplayButton" to="ReplayButton" method="_on_pressed"]

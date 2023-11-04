@@ -17,6 +17,8 @@ radius = 17.0294
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_68ub6")
+speed = 85.0
+hp = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_4nicl")

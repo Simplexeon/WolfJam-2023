@@ -20,6 +20,9 @@ var spriteB : Texture2D = preload("res://Art/enemies/VampireB.png");
 
 func initialize(player : CharacterBody2D, type : int) -> void:
 	
+	
+	print("BIG GUY")
+	
 	# Set AI
 	navigation.initialize(player, type);
 	

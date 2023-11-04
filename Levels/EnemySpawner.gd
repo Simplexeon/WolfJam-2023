@@ -20,6 +20,7 @@ var next_wave_points : int = 0;
 
 # Files
 var enemy_file : PackedScene = preload("res://Enemies/enemy.tscn");
+var big_enemy_file : PackedScene = preload("res://Enemies/BigEnemy.tscn");
 var navigation_map : RID;
 
 # Components
@@ -28,7 +29,7 @@ var root_node : Node2D;
 # Enemy Types
 enum EnemyType {
 	BASIC,
-	FLANKER
+	BIG
 }
 
 func _ready() -> void:
@@ -51,7 +52,12 @@ func _physics_process(delta: float) -> void:
 
 
 func create_enemy(type : EnemyType) -> void:
-	var enemy_inst : CharacterBody2D = enemy_file.instantiate();
+	var enemy_inst : CharacterBody2D;
+	match(type):
+		0:
+			enemy_inst = enemy_file.instantiate();
+		1:
+			enemy_inst = big_enemy_file.instantiate();
 	root_node.add_child(enemy_inst);
 	enemy_inst.global_position = get_child(randi_range(0, spawn_count - 1)).global_position;
 	enemy_inst.initialize(player, type);
@@ -61,6 +67,10 @@ func calculate_spawn() -> void:
 	
 	if(points > next_wave_points):
 		while(points > 0):
+			if(points > 4 and randf() > .65):
+				create_enemy(EnemyType.BIG);
+				points -= 4;
+				return;
 			create_enemy(EnemyType.BASIC);
 			points -= 1;
 		

@@ -20,6 +20,7 @@ script = ExtResource("1_egfi3")
 [node name="ShadingController" type="Node2D" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="ShadingController"]
+visible = false
 color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 
 [node name="Crosshair" type="Sprite2D" parent="."]
