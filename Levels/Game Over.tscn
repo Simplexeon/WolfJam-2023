@@ -1,12 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://v6mcxbkccrrw"]
+[gd_scene load_steps=8 format=3 uid="uid://v6mcxbkccrrw"]
 
 [ext_resource type="SystemFont" uid="uid://bx32v3dw3iu1x" path="res://Art/main.tres" id="1_g3p4j"]
 [ext_resource type="Script" path="res://Levels/Game Over.gd" id="1_uy6tv"]
 [ext_resource type="Script" path="res://Levels/ScoreLabel.gd" id="2_a5kjj"]
+[ext_resource type="Texture2D" uid="uid://cnbodwes3cv46" path="res://Art/game over background (1).png" id="2_e5ae1"]
 [ext_resource type="Script" path="res://Levels/ReplayButton.gd" id="3_2ynld"]
+[ext_resource type="Texture2D" uid="uid://7kmscwv805qe" path="res://Art/restart button unpressed.png" id="5_bny2w"]
+[ext_resource type="Texture2D" uid="uid://ca77on8ci8c50" path="res://Art/restart button pressed.png" id="6_pfj2x"]
 
 [node name="Game Over" type="Node2D"]
 script = ExtResource("1_uy6tv")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(128, 128)
+texture = ExtResource("2_e5ae1")
 
 [node name="Score" type="RichTextLabel" parent="."]
 anchors_preset = 8
@@ -21,7 +28,7 @@ offset_bottom = 137.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme_override_colors/default_color = Color(0.835294, 0.235294, 0.415686, 1)
+theme_override_colors/default_color = Color(0.121569, 0.0196078, 0.0627451, 1)
 theme_override_fonts/normal_font = ExtResource("1_g3p4j")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
@@ -67,7 +74,7 @@ offset_bottom = 139.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme_override_colors/default_color = Color(1, 0.509804, 0.454902, 1)
+theme_override_colors/default_color = Color(0.121569, 0.0196078, 0.0627451, 1)
 theme_override_fonts/normal_font = ExtResource("1_g3p4j")
 theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
@@ -90,7 +97,7 @@ offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme_override_colors/default_color = Color(0.835294, 0.235294, 0.415686, 1)
+theme_override_colors/default_color = Color(1, 0.509804, 0.454902, 1)
 theme_override_fonts/normal_font = ExtResource("1_g3p4j")
 theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
@@ -111,7 +118,7 @@ offset_bottom = 226.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme_override_colors/default_color = Color(1, 0.509804, 0.454902, 1)
+theme_override_colors/default_color = Color(0.121569, 0.0196078, 0.0627451, 1)
 theme_override_fonts/normal_font = ExtResource("1_g3p4j")
 theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
@@ -134,7 +141,7 @@ offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme_override_colors/default_color = Color(0.835294, 0.235294, 0.415686, 1)
+theme_override_colors/default_color = Color(1, 0.509804, 0.454902, 1)
 theme_override_fonts/normal_font = ExtResource("1_g3p4j")
 theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
@@ -142,11 +149,13 @@ text = "[center]Immolate Again?[/center]"
 fit_content = true
 scroll_active = false
 
-[node name="ReplayButton" type="Button" parent="."]
+[node name="ReplayButton" type="TextureButton" parent="."]
 offset_left = 98.0
 offset_top = 138.0
 offset_right = 162.0
 offset_bottom = 202.0
+texture_normal = ExtResource("5_bny2w")
+texture_pressed = ExtResource("6_pfj2x")
 script = ExtResource("3_2ynld")
 
 [connection signal="pressed" from="ReplayButton" to="ReplayButton" method="_on_pressed"]

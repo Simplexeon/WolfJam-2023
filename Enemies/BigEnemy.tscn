@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://bg1ul7ay8vwmr"]
+
+[ext_resource type="Script" path="res://Enemies/BigEnemy.gd" id="1_68ub6"]
+[ext_resource type="Texture2D" uid="uid://c88qurxfty63k" path="res://Art/enemies/miniboss.png" id="2_2k7tq"]
+[ext_resource type="Texture2D" uid="uid://cdo7q7ah7wqif" path="res://Art/Prototype/PixelLight.png" id="3_ny6u0"]
+[ext_resource type="Script" path="res://Enemies/Navigation.gd" id="4_ail45"]
+[ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="5_tmnjc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4nicl"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_au50w"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7xnld"]
+radius = 17.0294
+
+[node name="Enemy" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_68ub6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_4nicl")
+rotation = 1.5708
+texture = ExtResource("2_2k7tq")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite2D"]
+show_behind_parent = true
+clip_children = 1
+light_mask = 2
+occluder = SubResource("OccluderPolygon2D_au50w")
+sdf_collision = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7xnld")
+
+[node name="GlowingEyes" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="GlowingEyes"]
+position = Vector2(0, -3)
+scale = Vector2(2, 1)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 4.18
+texture = ExtResource("3_ny6u0")
+
+[node name="PointLight2D2" type="PointLight2D" parent="GlowingEyes"]
+position = Vector2(0, 3)
+scale = Vector2(2, 1)
+color = Color(0.72549, 0, 0.270588, 1)
+energy = 4.18
+texture = ExtResource("3_ny6u0")
+
+[node name="Navigation" type="Node2D" parent="."]
+script = ExtResource("4_ail45")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
+path_max_distance = 3000.0
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 35.0
+max_neighbors = 20
+
+[node name="NavigationTimer" type="Timer" parent="Navigation"]
+wait_time = 1.5
+
+[node name="DamageLight" type="PointLight2D" parent="."]
+visible = false
+energy = 10.0
+texture = ExtResource("5_tmnjc")
+texture_scale = 0.2
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[connection signal="timeout" from="Navigation/NavigationTimer" to="Navigation" method="_on_navigation_timer_timeout"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

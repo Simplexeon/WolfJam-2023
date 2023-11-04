@@ -1,7 +1,9 @@
+TextureButton
+TextureRect
+Sprite2D
 Timer
 Button
 RichTextLabel
-Sprite2D
 NavigationRegion2D
 CollisionShape2D
 Area2D

@@ -58,7 +58,7 @@ func _on_body_entered(body: Node2D) -> void:
 		make_light();
 		queue_free();
 		return;
-	if body is Enemy:
+	if(body.has_method("damage")):
 		body.damage();
 		body.damage();
 		make_light();

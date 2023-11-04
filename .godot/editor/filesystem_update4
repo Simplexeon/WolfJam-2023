@@ -20,3 +20,6 @@ res://Levels/Game Over.gd
 res://Player/Gun.gd
 res://Player/RifleBullet.tscn
 res://Player/RifleBullet.gd
+res://Enemies/BigEnemy.tscn
+res://Enemies/BigEnemy.gd
+res://Player/Bullet.gd
