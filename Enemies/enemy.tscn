@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://g33or5mpkwtf"]
+[gd_scene load_steps=9 format=3 uid="uid://g33or5mpkwtf"]
 
 [ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_elbty"]
 [ext_resource type="Texture2D" uid="uid://b8yaeuw64wagc" path="res://Art/enemies/VampireA.png" id="2_d0y46"]
 [ext_resource type="Texture2D" uid="uid://cdo7q7ah7wqif" path="res://Art/Prototype/PixelLight.png" id="3_k174r"]
 [ext_resource type="Script" path="res://Enemies/Navigation.gd" id="4_igxrk"]
 [ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="5_jnmxy"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4nicl"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_au50w"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -17,6 +19,8 @@ z_index = 1
 script = ExtResource("1_elbty")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_4nicl")
+rotation = 1.5708
 texture = ExtResource("2_d0y46")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite2D"]
@@ -32,13 +36,13 @@ shape = SubResource("CircleShape2D_7xnld")
 [node name="GlowingEyes" type="Node2D" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="GlowingEyes"]
-position = Vector2(-3, -1)
+position = Vector2(1, -3)
 color = Color(0.72549, 0, 0.270588, 1)
 energy = 4.18
 texture = ExtResource("3_k174r")
 
 [node name="PointLight2D2" type="PointLight2D" parent="GlowingEyes"]
-position = Vector2(3, -1)
+position = Vector2(1, 3)
 color = Color(0.72549, 0, 0.270588, 1)
 energy = 4.18
 texture = ExtResource("3_k174r")

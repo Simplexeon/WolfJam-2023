@@ -1,19 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://brjpsfcowvc7i"]
+[gd_scene load_steps=9 format=3 uid="uid://brjpsfcowvc7i"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_jk8fe"]
 [ext_resource type="PackedScene" uid="uid://qiaarkcs1nih" path="res://Player/gun.tscn" id="2_87qi1"]
 [ext_resource type="Texture2D" uid="uid://bfdklyykf7c0t" path="res://Art/player/player.png" id="3_mldyy"]
+[ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="4_ntn0w"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kgwk4"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g0vcc"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wq8hy"]
+blend_mode = 1
+light_mode = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u2md2"]
 radius = 9.05539
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
+material = SubResource("CanvasItemMaterial_kgwk4")
 script = ExtResource("1_jk8fe")
 
 [node name="Gun" parent="." instance=ExtResource("2_87qi1")]
+material = SubResource("CanvasItemMaterial_g0vcc")
 position = Vector2(8, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_wq8hy")
 rotation = -1.5708
 texture = ExtResource("3_mldyy")
 
@@ -24,3 +40,8 @@ shape = SubResource("CircleShape2D_u2md2")
 
 [node name="Flank" type="Node2D" parent="."]
 position = Vector2(-46, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.4
+texture = ExtResource("4_ntn0w")
+texture_scale = 0.5

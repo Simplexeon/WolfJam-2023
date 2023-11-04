@@ -66,3 +66,7 @@ func GetMovementDirection() -> Vector2:
 	if(right):
 		result.x += 1;
 	return result.normalized();
+
+
+func _on_enemy_died(death_pos : Vector2) -> void:
+	print("enemy died!");

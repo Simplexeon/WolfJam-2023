@@ -22,5 +22,4 @@ func _on_navigation_timer_timeout() -> void:
 	agent.target_position = player.global_position;
 	
 	movement_dir = (agent.get_next_path_position() - global_position).normalized();
-	print(str(movement_dir));
 

@@ -1,15 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://mhpso4iyhojp"]
+[gd_scene load_steps=5 format=3 uid="uid://mhpso4iyhojp"]
 
+[ext_resource type="Texture2D" uid="uid://culfjsdq54w5j" path="res://Art/Pyre replace.png" id="1_23vfw"]
 [ext_resource type="Texture2D" uid="uid://covsm0gnri57k" path="res://Art/Prototype/Light.png" id="1_ayrjv"]
-[ext_resource type="Texture2D" uid="uid://cekp6g6y01ikn" path="res://Art/pyre.png" id="1_fp40s"]
+[ext_resource type="Script" path="res://Objects/pyre.gd" id="1_ueu8d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpy1m"]
-size = Vector2(32, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_xj8qh"]
+radius = 9.0
 
 [node name="Pyre" type="StaticBody2D"]
+script = ExtResource("1_ueu8d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_fp40s")
+texture = ExtResource("1_23vfw")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 0.8
@@ -19,7 +21,7 @@ texture = ExtResource("1_ayrjv")
 texture_scale = 1.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_wpy1m")
+shape = SubResource("CircleShape2D_xj8qh")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-radius = 25.0
+radius = 15.0
