@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckndod2ea2l0e"]
+[gd_scene load_steps=5 format=3 uid="uid://ckndod2ea2l0e"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_1gywm"]
+[ext_resource type="PackedScene" uid="uid://qiaarkcs1nih" path="res://Levels/gun.tscn" id="2_ifvny"]
 [ext_resource type="Texture2D" uid="uid://bfdklyykf7c0t" path="res://Art/player/player.png" id="2_slxed"]
-[ext_resource type="Script" path="res://Player/Gun.gd" id="3_4vagh"]
-[ext_resource type="Texture2D" uid="uid://d2ujlxo21c70c" path="res://Art/player/Gun.png" id="3_roywh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_esqfs"]
 radius = 8.06226
@@ -12,25 +11,7 @@ radius = 8.06226
 z_index = 3
 script = ExtResource("1_1gywm")
 
-[node name="Gun" type="Node2D" parent="."]
-script = ExtResource("3_4vagh")
-spread = 35.0
-max_range = 300.0
-min_range = 80.0
-bullet_count = 6
-bullet_lifetime = 0.4
-
-[node name="Sprite2D" type="Sprite2D" parent="Gun"]
-position = Vector2(8, -1)
-rotation = -1.5708
-texture = ExtResource("3_roywh")
-
-[node name="CDTimer" type="Timer" parent="Gun"]
-wait_time = 2.0
-one_shot = true
-
-[node name="GunHead" type="Node2D" parent="Gun"]
-position = Vector2(24, 0)
+[node name="Gun" parent="." instance=ExtResource("2_ifvny")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -6)
