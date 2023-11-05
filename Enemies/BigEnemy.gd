@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name BigEnemy
 
 # Signals
 signal died(death_pos : Vector2);

@@ -1,13 +1,11 @@
-res://Enemies/BigEnemy.tscn
-res://Levels/main.tscn
-res://Player/player_character.tscn
-res://Player/gun.tscn
-res://Enemies/Boss.tscn
-res://Player/RifleBullet.tscn
-res://Player/Bullet.tscn
-res://Enemies/BossDeathYell.tscn
-res://Levels/TitleScreen.tscn
-res://Player/player.tscn
-res://Enemies/enemy.tscn
 res://Objects/megaPyre.tscn
 res://Objects/megaPyre.gd
+res://Levels/main.tscn
+res://Player/player_character.tscn
+res://Player/player.gd
+res://Levels/ShadingController.gd
+res://Enemies/BigEnemy.tscn
+res://Enemies/BigEnemy.gd
+res://Levels/Game Over.tscn
+res://Levels/ReplayButton.gd
+res://Levels/TitleScreen.tscn

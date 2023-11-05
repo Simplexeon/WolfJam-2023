@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 		label.modulate.a = lerp(label.modulate.a, fade_target, text_fade_timer);
 		if(text_fade_timer >= 1.0 and reverse_shrink):
 			fade_target = 0.0;
+			text_fade_timer = 0.0;
 		if(text_fade_timer >= 1.0):
 			var player_score : int = get_node("/root/Main/PlayerCharacter").score
 			if(player_score >= 25000 or reverse_shrink):

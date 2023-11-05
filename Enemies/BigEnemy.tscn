@@ -49,7 +49,6 @@ occluder = SubResource("OccluderPolygon2D_au50w")
 sdf_collision = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_7xnld")
 
 [node name="GlowingEyes" type="Node2D" parent="."]

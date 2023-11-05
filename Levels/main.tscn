@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://dprabjvil2cku"]
+[gd_scene load_steps=19 format=3 uid="uid://dprabjvil2cku"]
 
 [ext_resource type="Script" path="res://Levels/main.gd" id="1_egfi3"]
+[ext_resource type="Script" path="res://Levels/ShadingController.gd" id="2_0abvk"]
 [ext_resource type="Script" path="res://Levels/Camera2D.gd" id="2_lh26t"]
 [ext_resource type="PackedScene" uid="uid://ba3rpsvyhb551" path="res://Levels/tile_map.tscn" id="2_v2rwh"]
 [ext_resource type="PackedScene" uid="uid://baiqwo3r26agl" path="res://Objects/crosshair.tscn" id="2_v13pq"]
@@ -36,7 +37,10 @@ stream_3/weight = 1.0
 [node name="Main" type="Node2D"]
 script = ExtResource("1_egfi3")
 
-[node name="ShadingController" type="Node2D" parent="."]
+[node name="ShadingController" type="Node2D" parent="." node_paths=PackedStringArray("player", "Camera")]
+script = ExtResource("2_0abvk")
+player = NodePath("../PlayerCharacter")
+Camera = NodePath("../Camera2D")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="ShadingController"]
 color = Color(0.0392157, 0.0392157, 0.0392157, 1)

@@ -50,8 +50,6 @@ var score_multiplier : float = 1.0;
 @onready var hitsounds : AudioStreamPlayer = $Hitsounds;
 
 
-var death_transition_file : PackedScene = preload("res://Objects/Transition.tscn");
-
 
 func _ready() -> void:
 	score_timer.start();
@@ -127,13 +125,12 @@ func set_hp(new_value : int):
 	hitsounds.play();
 	if(HP == 0):
 		Score.end_score = score;
-		var transition_inst : Sprite2D = death_transition_file.instantiate();
-		transition_inst.initialize(true, "res://Levels/Game Over.tscn");
-		Camera.add_child(transition_inst);
-		transition_inst.global_position = Camera.global_position + Vector2(-128,-128);
+		Crosshair.queue_free();
 	if(!is_node_ready()):
 		return;
-	Crosshair.frame = new_value - 1;
+	if(HP > 0):
+		Crosshair.frame = new_value - 1;
+	
 
 
 func _on_score_timer_timeout() -> void:
@@ -142,6 +139,8 @@ func _on_score_timer_timeout() -> void:
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body is Enemy:
+		HP -= 1;
+	if body is BigEnemy:
 		HP -= 1;
 
 

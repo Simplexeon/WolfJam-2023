@@ -1,6 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1699193177
-export_presets.cfg::TextFile::-1::1699133432::0::1::::<><>::
+::res://::1699196154
+export_presets.cfg::TextFile::-1::1699195913::0::1::::<><>::
 icon.svg::CompressedTexture2D::1057411483181488038::1699043571::1699043578::1::::<><>::
 README.md::TextFile::-1::1699043622::0::1::::<><>::
 ::res://Art/::1699132950
@@ -27,7 +27,7 @@ Titlescreen-Wide-export.png::CompressedTexture2D::3714781000729118177::169912997
 Titlescreen-Wide.png::CompressedTexture2D::3570844480347092307::1699129965::1699132950::1::::<><>::
 Titlescreen.png::CompressedTexture2D::3883053320076157868::1699088910::1699088925::1::::<><>::
 two freshmen in a trench coat.png::CompressedTexture2D::6299720393946182297::1699120332::1699120346::1::::<><>::
-::res://Art/enemies/::1699118401
+::res://Art/enemies/::1699193179
 bison.png::CompressedTexture2D::641066558305889160::1699118380::1699118401::1::::<><>::
 elknew.png::CompressedTexture2D::3251644888924186603::1699107725::1699107733::1::::<><>::
 eyeball.png::CompressedTexture2D::2972775300586025998::1699118380::1699118401::1::::<><>::
@@ -63,23 +63,23 @@ toClear.png::CompressedTexture2D::8341104081080609409::1699114247::1699114251::1
 ::res://Autoloads/::1699088367
 create_node.gd::GDScript::-1::1699062438::0::1::::<>Node<>::
 score.gd::GDScript::-1::1699088367::0::1::::<>Node<>::
-::res://Enemies/::1699133297
+::res://Enemies/::1699194624
 BigEnemy.gd::GDScript::-1::1699126257::0::1::::<>CharacterBody2D<>::
-BigEnemy.tscn::PackedScene::2862463232597737785::1699133297::0::1::::<><>::res://Enemies/BigEnemy.gd<>uid://bmled7ncfbeln::::res://Art/enemies/elknew.png<>uid://cdo7q7ah7wqif::::res://Art/Prototype/PixelLight.png<>res://Enemies/Navigation.gd<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png<>res://Enemies/ElkSounds.gd<>uid://c840gl83kij2::::res://SFX/elksound(spawn).wav<>uid://csg1nj2aiq6gt::::res://SFX/elksounddie.wav
+BigEnemy.tscn::PackedScene::2862463232597737785::1699194624::0::1::::<><>::res://Enemies/BigEnemy.gd<>uid://bmled7ncfbeln::::res://Art/enemies/elknew.png<>uid://cdo7q7ah7wqif::::res://Art/Prototype/PixelLight.png<>res://Enemies/Navigation.gd<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png<>res://Enemies/ElkSounds.gd<>uid://c840gl83kij2::::res://SFX/elksound(spawn).wav<>uid://csg1nj2aiq6gt::::res://SFX/elksounddie.wav
 Boss.gd::GDScript::-1::1699127296::0::1::::<>Area2D<>::
-Boss.tscn::PackedScene::1510363302489576921::1699133297::0::1::::<><>::res://Enemies/Boss.gd<>uid://cdo7q7ah7wqif::::res://Art/Prototype/PixelLight.png<>uid://brp2k8sjga6wv::::res://Art/enemies/sinew god/godarm1.png<>uid://nh5e2q5mw30s::::res://SFX/BossHurt.wav<>res://Enemies/ElkSounds.gd<>uid://cu6u3o2sgr2h5::::res://SFX/bosssound.wav<>uid://cx46l66emx8j8::::res://Art/enemies/sinew god/godarm2.png<>uid://c840gl83kij2::::res://SFX/elksound(spawn).wav<>uid://dk28gj42ncivq::::res://Art/enemies/sinew god/godskull.png<>uid://dmi6x2nn6nnps::::res://Art/enemies/sinew god/godlefthand.png<>uid://csg1nj2aiq6gt::::res://SFX/elksounddie.wav<>uid://468rv4evwh2i::::res://Art/enemies/sinew god/godrighthand.png<>res://Enemies/BossHands.gd<>uid://blhnxpuqfl2ad::::res://SFX/bossbackingchant.wav<>res://Enemies/Chant.gd
+Boss.tscn::PackedScene::1510363302489576921::1699194624::0::1::::<><>::res://Enemies/Boss.gd<>uid://cdo7q7ah7wqif::::res://Art/Prototype/PixelLight.png<>uid://brp2k8sjga6wv::::res://Art/enemies/sinew god/godarm1.png<>uid://nh5e2q5mw30s::::res://SFX/BossHurt.wav<>res://Enemies/ElkSounds.gd<>uid://cu6u3o2sgr2h5::::res://SFX/bosssound.wav<>uid://cx46l66emx8j8::::res://Art/enemies/sinew god/godarm2.png<>uid://c840gl83kij2::::res://SFX/elksound(spawn).wav<>uid://dk28gj42ncivq::::res://Art/enemies/sinew god/godskull.png<>uid://dmi6x2nn6nnps::::res://Art/enemies/sinew god/godlefthand.png<>uid://csg1nj2aiq6gt::::res://SFX/elksounddie.wav<>uid://468rv4evwh2i::::res://Art/enemies/sinew god/godrighthand.png<>res://Enemies/BossHands.gd<>uid://blhnxpuqfl2ad::::res://SFX/bossbackingchant.wav<>res://Enemies/Chant.gd
 BossDeathYell.gd::GDScript::-1::1699127192::0::1::::<>AudioStreamPlayer2D<>::
-BossDeathYell.tscn::PackedScene::3399861469452300232::1699133297::0::1::::<><>::res://Enemies/BossDeathYell.gd<>uid://c2xpkwqdao0tr::::res://Enemies/bosssound.wav
+BossDeathYell.tscn::PackedScene::3399861469452300232::1699194624::0::1::::<><>::res://Enemies/BossDeathYell.gd<>uid://c2xpkwqdao0tr::::res://Enemies/bosssound.wav
 BossHands.gd::GDScript::-1::1699124920::0::1::::BossHands<>Area2D<>::
 bosssound.wav::AudioStreamWAV::6716350627154457163::1699125257::1699125258::1::::<><>::
 Chant.gd::GDScript::-1::1699125349::0::1::::<>AudioStreamPlayer2D<>::
 ElkSounds.gd::GDScript::-1::1699108228::0::1::::<>Area2D<>::
 enemy.gd::GDScript::-1::1699126281::0::1::::Enemy<>CharacterBody2D<>::
-enemy.tscn::PackedScene::480661655660771747::1699107504::0::1::::<><>::res://Enemies/enemy.gd<>uid://b8yaeuw64wagc::::res://Art/enemies/VampireA.png<>uid://cdo7q7ah7wqif::::res://Art/Prototype/PixelLight.png<>res://Enemies/Navigation.gd<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png
+enemy.tscn::PackedScene::480661655660771747::1699194624::0::1::::<><>::res://Enemies/enemy.gd<>uid://b8yaeuw64wagc::::res://Art/enemies/VampireA.png<>uid://cdo7q7ah7wqif::::res://Art/Prototype/PixelLight.png<>res://Enemies/Navigation.gd<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png
 EnemyDeathSound.gd::GDScript::-1::1699108477::0::1::::<>AudioStreamPlayer2D<>::
-EnemyDeathSound.tscn::PackedScene::5047605674554815375::1699108481::0::1::::<><>::uid://bwneep564loc::::res://SFX/vampiredeath.wav<>uid://d1scr1ylm8f5w::::res://SFX/vampiredeath2.wav<>uid://ci46sryjx73fx::::res://SFX/vampiredeath3.wav<>uid://b1udssebxr8dw::::res://SFX/vampiredeath4.wav<>uid://d3m55mkgrdd2p::::res://SFX/vampiredeath5.wav<>res://Enemies/EnemyDeathSound.gd
+EnemyDeathSound.tscn::PackedScene::5047605674554815375::1699108481::0::1::::<><>::uid://bwneep564loc
 Navigation.gd::GDScript::-1::1699103982::0::1::::<>Node2D<>::
-::res://Exports/::1699133484
+::res://Exports/::1699195965
 ::res://Exports/Ver1.2/::1699121632
 AveInfernum.apple-touch-icon.png::CompressedTexture2D::4673112857932708513::1699121295::1699121632::1::::<><>::
 AveInfernum.icon.png::CompressedTexture2D::2230183278871647484::1699121295::1699121632::1::::<><>::
@@ -104,48 +104,52 @@ AveIncensa.png::CompressedTexture2D::769125725372442915::1699128224::1699128266:
 AveIncensa.apple-touch-icon.png::CompressedTexture2D::8422289673904629926::1699129486::1699132950::1::::<><>::
 AveIncensa.icon.png::CompressedTexture2D::2658510945841538325::1699129486::1699132950::1::::<><>::
 AveIncensa.png::CompressedTexture2D::6505378154481235077::1699129486::1699132950::1::::<><>::
-::res://Exports/Ver 1.7/::1699133474
+::res://Exports/Ver 1.7/::1699193179
 AveIncensa.apple-touch-icon.png::CompressedTexture2D::1057418139699699618::1699133436::1699193179::1::::<><>::
 AveIncensa.icon.png::CompressedTexture2D::5168723239089991095::1699133436::1699193179::1::::<><>::
 AveIncensa.png::CompressedTexture2D::6047375706962410373::1699133436::1699193179::1::::<><>::
-::res://Levels/::1699133358
+::res://Exports/Ver 1.8/::1699195954
+AveIncensa.apple-touch-icon.png::CompressedTexture2D::3459679673237479774::1699195919::1699196155::1::::<><>::
+AveIncensa.icon.png::CompressedTexture2D::7759734808347938766::1699195919::1699196155::1::::<><>::
+AveIncensa.png::CompressedTexture2D::4733475110060905177::1699195919::1699196155::1::::<><>::
+::res://Levels/::1699195778
 AudioStreamPlayer.gd::GDScript::-1::1699106144::0::1::::<>AudioStreamPlayer<>::
 Camera2D.gd::GDScript::-1::1699133296::0::1::::<>Camera2D<>::
 EnemySpawner.gd::GDScript::-1::1699128114::0::1::::<>Node2D<>::
 EpillepsyWarning.gd::GDScript::-1::1699129424::0::1::::<>TextureRect<>::
 Game Over.gd::GDScript::-1::1699090450::0::1::::<>Node2D<>::
-Game Over.tscn::PackedScene::1538694812314523980::1699123055::0::1::::<><>::res://Levels/Game Over.gd<>res://Levels/ScoreLabel.gd<>uid://cnbodwes3cv46::::res://Art/game over background (1).png<>res://Levels/ReplayButton.gd<>uid://c785noxdvf55c::::res://Art/QuinqueFive.ttf<>uid://b61h2q7ibm8ku::::res://Art/retry clicked.png<>uid://dp86h6qo7sy2g::::res://Art/retry.png<>uid://baiqwo3r26agl::::res://Objects/crosshair.tscn<>uid://kwmuk2ov0cy8::::res://Objects/Transition.tscn
+Game Over.tscn::PackedScene::1538694812314523980::1699123055::0::1::::<><>::res://Levels/Game Over.gd<>res://Levels/ScoreLabel.gd<>uid://cnbodwes3cv46
 main.gd::GDScript::-1::1699072257::0::1::::<>Node2D<>::
-main.tscn::PackedScene::8247191418793001016::1699133358::0::1::::<><>::res://Levels/main.gd<>res://Levels/Camera2D.gd<>uid://ba3rpsvyhb551::::res://Levels/tile_map.tscn<>uid://baiqwo3r26agl::::res://Objects/crosshair.tscn<>res://Levels/EnemySpawner.gd<>uid://brjpsfcowvc7i::::res://Player/player_character.tscn<>uid://c785noxdvf55c::::res://Art/QuinqueFive.ttf<>uid://cur0uu204anox::::res://SFX/wind.wav<>uid://u0h8nh1kx86u::::res://SFX/wind2.wav<>uid://b80xar6ixb5lq::::res://SFX/wind3.wav<>uid://c14toggpuntcs::::res://SFX/wind4.wav<>res://Levels/AudioStreamPlayer.gd<>uid://kwmuk2ov0cy8::::res://Objects/Transition.tscn<>uid://ijhe2w0jsu3g::::res://Objects/megaPyre.tscn
+main.tscn::PackedScene::8247191418793001016::1699195778::0::1::::<><>::res://Levels/main.gd<>res://Levels/Camera2D.gd<>uid://ba3rpsvyhb551::::res://Levels/tile_map.tscn<>uid://baiqwo3r26agl::::res://Objects/crosshair.tscn<>res://Levels/EnemySpawner.gd<>uid://brjpsfcowvc7i::::res://Player/player_character.tscn<>uid://c785noxdvf55c::::res://Art/QuinqueFive.ttf<>uid://cur0uu204anox::::res://SFX/wind.wav<>uid://u0h8nh1kx86u::::res://SFX/wind2.wav<>uid://b80xar6ixb5lq::::res://SFX/wind3.wav<>uid://c14toggpuntcs::::res://SFX/wind4.wav<>res://Levels/AudioStreamPlayer.gd<>uid://kwmuk2ov0cy8::::res://Objects/Transition.tscn<>uid://ijhe2w0jsu3g::::res://Objects/megaPyre.tscn
 ReplayButton.gd::GDScript::-1::1699092167::0::1::::<>TextureButton<>::
 ScoreLabel.gd::GDScript::-1::1699088399::0::1::::<>RichTextLabel<>::
 StartButton.gd::GDScript::-1::1699115115::0::1::::<>TextureButton<>::
-tile_map.tscn::PackedScene::2445283215553452998::1699093320::0::1::::<><>::uid://vlh1i6g6c0sm::::res://Art/Tiles (3).png
-TitleScreen.tscn::PackedScene::8724053381271402860::1699133297::0::1::::<><>::uid://bvk8k56dnicdo::::res://Art/Titlescreen.png<>uid://c785noxdvf55c::::res://Art/QuinqueFive.ttf<>res://Levels/StartButton.gd<>uid://s8fbput4tm7s::::res://Art/start unpressed.png<>uid://bjqlvufbfkjek::::res://Art/start pressed.png<>uid://cf1jyqc2w47s6::::res://Art/starthover.png<>uid://baiqwo3r26agl::::res://Objects/crosshair.tscn<>uid://btg5opmn8cwne::::res://Art/Transitions/BlackScreen.png<>res://Levels/EpillepsyWarning.gd
-::res://Objects/::1699122782
+tile_map.tscn::PackedScene::2445283215553452998::1699093320::0::1::::<><>::uid://vlh1i6g6c0sm
+TitleScreen.tscn::PackedScene::8724053381271402860::1699194624::0::1::::<><>::uid://bvk8k56dnicdo::::res://Art/Titlescreen.png<>uid://c785noxdvf55c::::res://Art/QuinqueFive.ttf<>res://Levels/StartButton.gd<>uid://s8fbput4tm7s::::res://Art/start unpressed.png<>uid://bjqlvufbfkjek::::res://Art/start pressed.png<>uid://cf1jyqc2w47s6::::res://Art/starthover.png<>uid://baiqwo3r26agl::::res://Objects/crosshair.tscn<>uid://btg5opmn8cwne::::res://Art/Transitions/BlackScreen.png<>res://Levels/EpillepsyWarning.gd
+::res://Objects/::1699195778
 Area2D.gd::GDScript::-1::1699119501::0::1::::<>Area2D<>::
 crosshair.gd::GDScript::-1::1699105489::0::1::::<>Sprite2D<>::
-crosshair.tscn::PackedScene::2403947244466877983::1699116228::0::1::::<><>::uid://c4llwg5s0th30::::res://Player/crosshair-export.png<>res://Objects/crosshair.gd
+crosshair.tscn::PackedScene::2403947244466877983::1699116228::0::1::::<><>::uid://c4llwg5s0th30
 LightDimmer.gd::GDScript::-1::1699076401::0::1::::<>PointLight2D<>::
-LightDimmer.tscn::PackedScene::6709637782163602761::1699122782::0::1::::<><>::uid://covsm0gnri57k::::res://Art/Prototype/Light.png<>res://Objects/LightDimmer.gd
-megaPyre.gd::GDScript::-1::1699122781::0::1::::MegaPyre<>Node2D<>::
-megaPyre.tscn::PackedScene::580523764280577102::1699122782::0::1::::<><>::res://Objects/megaPyre.gd<>uid://cwg8ewesnyeyb::::res://Art/Large pyre.png<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png<>uid://3gocta2x5l7e::::res://SFX/fire.wav<>res://Objects/Area2D.gd<>uid://c785noxdvf55c::::res://Art/QuinqueFive.ttf
+LightDimmer.tscn::PackedScene::6709637782163602761::1699122782::0::1::::<><>::uid://covsm0gnri57k
+megaPyre.gd::GDScript::-1::1699195756::0::1::::MegaPyre<>Node2D<>::
+megaPyre.tscn::PackedScene::580523764280577102::1699195778::0::1::::<><>::res://Objects/megaPyre.gd<>uid://cwg8ewesnyeyb::::res://Art/Large pyre.png<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png<>uid://3gocta2x5l7e::::res://SFX/fire.wav<>res://Objects/Area2D.gd<>uid://c785noxdvf55c::::res://Art/QuinqueFive.ttf
 pyre.gd::GDScript::-1::1699105244::0::1::::<>StaticBody2D<>::
-pyre.tscn::PackedScene::857660447638669297::1699108481::0::1::::<><>::uid://culfjsdq54w5j::::res://Art/Pyre replace.png<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png<>res://Objects/pyre.gd<>uid://3gocta2x5l7e::::res://SFX/fire.wav
+pyre.tscn::PackedScene::857660447638669297::1699108481::0::1::::<><>::uid://culfjsdq54w5j
 Transition.gd::GDScript::-1::1699115474::0::1::::<>Sprite2D<>::
-Transition.tscn::PackedScene::748069634369299825::1699122782::0::1::::<><>::uid://csxksrfpfddg::::res://Art/Transitions/FtoC.tres<>res://Objects/Transition.gd
-::res://Player/::1699133297
+Transition.tscn::PackedScene::748069634369299825::1699122782::0::1::::<><>::uid://csxksrfpfddg
+::res://Player/::1699195778
 Bullet.gd::GDScript::-1::1699124850::0::1::::<>Area2D<>::
-Bullet.tscn::PackedScene::1610788879775266589::1699133297::0::1::::<><>::res://Player/Bullet.gd<>uid://di33lr74gtgm7::::res://Art/Prototype/Fragment.png<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png
+Bullet.tscn::PackedScene::1610788879775266589::1699194624::0::1::::<><>::res://Player/Bullet.gd<>uid://di33lr74gtgm7::::res://Art/Prototype/Fragment.png<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png
 crosshair-export.png::CompressedTexture2D::6831733524906372821::1699085438::1699085451::1::::<><>::
 crosshair.png::CompressedTexture2D::1383771914390385509::1699085426::1699085451::1::::<><>::
 Gun.gd::GDScript::-1::1699106939::0::1::::<>Node2D<>::
-gun.tscn::PackedScene::1139537428701955067::1699133297::0::1::::<><>::res://Player/Gun.gd<>uid://bi2efwgi86gqp::::res://Art/player/gundoom.png<>uid://cf0an68xw6fl::::res://Art/Prototype/MuzzleFlash.png<>uid://bw65r46rw5y20::::res://SFX/gun2.wav<>uid://fnuhfmuyrhk0::::res://SFX/gun3.wav<>uid://dhjonf83n2i1b::::res://SFX/gun4.wav<>uid://vtx2yfrcyefb::::res://SFX/Reloadnew.wav
+gun.tscn::PackedScene::1139537428701955067::1699194624::0::1::::<><>::res://Player/Gun.gd<>uid://bi2efwgi86gqp::::res://Art/player/gundoom.png<>uid://cf0an68xw6fl::::res://Art/Prototype/MuzzleFlash.png<>uid://bw65r46rw5y20::::res://SFX/gun2.wav<>uid://fnuhfmuyrhk0::::res://SFX/gun3.wav<>uid://dhjonf83n2i1b::::res://SFX/gun4.wav<>uid://vtx2yfrcyefb::::res://SFX/Reloadnew.wav
 player.gd::GDScript::-1::1699126727::0::1::::Player<>CharacterBody2D<>::
-player.tscn::PackedScene::5501774066124857114::1699133297::0::1::::<><>::res://Player/player.gd<>uid://qiaarkcs1nih::::res://Player/gun.tscn<>uid://bfdklyykf7c0t::::res://Art/player/player.png
-player_character.tscn::PackedScene::3599153590880658328::1699133297::0::1::::<><>::res://Player/player.gd<>uid://qiaarkcs1nih::::res://Player/gun.tscn<>uid://bfdklyykf7c0t::::res://Art/player/player.png<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png<>uid://cepgcsykah78a::::res://SFX/Playerwalk.wav<>uid://bfh4tilx2h3c::::res://SFX/playerhurt1.wav<>uid://fvoj16hvs450::::res://SFX/playerhurt2.wav<>uid://cfvpuuccrsvtn::::res://SFX/playerhurt4.wav
+player.tscn::PackedScene::5501774066124857114::1699194624::0::1::::<><>::res://Player/player.gd<>uid://qiaarkcs1nih::::res://Player/gun.tscn<>uid://bfdklyykf7c0t::::res://Art/player/player.png
+player_character.tscn::PackedScene::3599153590880658328::1699195778::0::1::::<><>::res://Player/player.gd<>uid://qiaarkcs1nih::::res://Player/gun.tscn<>uid://bfdklyykf7c0t::::res://Art/player/player.png<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png<>uid://cepgcsykah78a::::res://SFX/Playerwalk.wav<>uid://bfh4tilx2h3c::::res://SFX/playerhurt1.wav<>uid://fvoj16hvs450::::res://SFX/playerhurt2.wav<>uid://cfvpuuccrsvtn::::res://SFX/playerhurt4.wav
 RifleBullet.gd::GDScript::-1::1699124822::0::1::::<>Area2D<>::
-RifleBullet.tscn::PackedScene::8049408681106277021::1699133297::0::1::::<><>::res://Player/RifleBullet.gd<>uid://bfxkoyksrusv::::res://Art/Prototype/Bullet.png<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png
+RifleBullet.tscn::PackedScene::8049408681106277021::1699194624::0::1::::<><>::res://Player/RifleBullet.gd<>uid://bfxkoyksrusv::::res://Art/Prototype/Bullet.png<>uid://covsm0gnri57k::::res://Art/Prototype/Light.png
 ::res://SFX/::1699127646
 bison1.wav::AudioStreamWAV::8467223174355726130::1699118380::1699118402::1::::<><>::
 bison2.wav::AudioStreamWAV::3452166803251518130::1699118380::1699118402::1::::<><>::
