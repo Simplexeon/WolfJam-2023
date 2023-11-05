@@ -5,17 +5,20 @@ var current_scale : float = 0.5;
 var max_scale : float = 2.5;
 var dim_rate : float = 0.04;
 var pyre_increase_rate : float = 1.05;
+var fade_target : float = 0.0
 
 # Components
 @onready var light : PointLight2D = $PointLight2D;
 @onready var audio_player : AudioStreamPlayer2D = $AudioStreamPlayer2D;
 @onready var area_2d : CollisionShape2D = $Area2D/CollisionShape2D;
 @onready var label : RichTextLabel = $Label;
+@onready var sub_label : RichTextLabel = $Label/Label;
 @onready var label_timer : Timer = $LabelTimer;
 
 var shrinking : bool = false;
-var text : bool = true;
 var text_fade_timer : float = 0.0;
+var text : bool = true;
+var reverse_shrink : bool = false;
 
 func _ready() -> void:
 	light.texture_scale = lerp(0.0, max_scale, current_scale);
@@ -27,11 +30,23 @@ func _physics_process(delta: float) -> void:
 		return;
 	
 	if(text):
-		text_fade_timer += 1.0 * delta;
-		label.modulate.a = lerp(label.modulate.a, 0.0, text_fade_timer);
-		if(label.modulate.a <=0.04):
-			label.queue_free();
-			text = false;
+		text_fade_timer += 0.3 * delta;
+		label.modulate.a = lerp(label.modulate.a, fade_target, text_fade_timer);
+		if(text_fade_timer >= 1.0 and reverse_shrink):
+			fade_target = 0.0;
+		if(text_fade_timer >= 1.0):
+			var player_score : int = get_node("/root/Main/PlayerCharacter").score
+			if(player_score >= 25000 or reverse_shrink):
+				label.queue_free();
+				text = false;
+				return;
+			label.text = "[center]" + str(25000 - player_score) + " to go[/center]";
+			sub_label.text = "[center]" + str(25000 - player_score) + " to go[/center]";
+			label.bbcode_enabled = true;
+			sub_label.bbcode_enabled = true;
+			fade_target = 1.0;
+			text_fade_timer = 0.0;
+			reverse_shrink = true;
 	
 	light.texture_scale = lerp(0.0, max_scale, current_scale);
 	current_scale -= dim_rate * delta;

@@ -9,7 +9,8 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4nicl"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_au50w"]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+cull_mode = 2
+polygon = PackedVector2Array(7.99997, -8.00003, 8.00002, 5.99997, -7.99998, 6.00003, -8.00003, -7.99997, -4.00003, -7.99999, -4.00001, -1.99999, 3.99999, -2.00001, 3.99997, -8.00001)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7xnld"]
 radius = 9.0
@@ -25,7 +26,6 @@ texture = ExtResource("2_d0y46")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite2D"]
 show_behind_parent = true
-clip_children = 1
 light_mask = 2
 occluder = SubResource("OccluderPolygon2D_au50w")
 sdf_collision = false
