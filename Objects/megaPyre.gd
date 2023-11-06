@@ -37,12 +37,12 @@ func _physics_process(delta: float) -> void:
 			text_fade_timer = 0.0;
 		if(text_fade_timer >= 1.0):
 			var player_score : int = get_node("/root/Main/PlayerCharacter").score
-			if(player_score >= 25000 or reverse_shrink):
+			if(player_score >= 15000 or reverse_shrink):
 				label.queue_free();
 				text = false;
 				return;
-			label.text = "[center]" + str(25000 - player_score) + " to go[/center]";
-			sub_label.text = "[center]" + str(25000 - player_score) + " to go[/center]";
+			label.text = "[center]" + str(15000 - player_score) + " to go[/center]";
+			sub_label.text = "[center]" + str(15000 - player_score) + " to go[/center]";
 			label.bbcode_enabled = true;
 			sub_label.bbcode_enabled = true;
 			fade_target = 1.0;

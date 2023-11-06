@@ -1,11 +1,8 @@
-res://Objects/megaPyre.tscn
-res://Objects/megaPyre.gd
 res://Levels/main.tscn
+res://Levels/EnemySpawner.gd
+res://Objects/megaPyre.gd
 res://Player/player_character.tscn
-res://Player/player.gd
-res://Levels/ShadingController.gd
+res://Objects/megaPyre.tscn
 res://Enemies/BigEnemy.tscn
-res://Enemies/BigEnemy.gd
-res://Levels/Game Over.tscn
-res://Levels/ReplayButton.gd
 res://Levels/TitleScreen.tscn
+res://Levels/Game Over.tscn

@@ -55,14 +55,14 @@ func _physics_process(delta: float) -> void:
 	wave_points_maximum += (player.score / 5000) * delta;
 	calculate_spawn();
 	
-	if(player.score >= 25000 and !boss_spawned):
+	if(player.score >= 15000 and !boss_spawned):
 		var boss_inst : Area2D = boss_file.instantiate();
 		root_node.add_child(boss_inst);
 		boss_inst.initialize(player);
 		boss_inst.global_position = Vector2(562, -420);
 		boss_spawned = true;
 	
-	if(player.score >= 70000 and !ultra_instinct_boss):
+	if(player.score >= 30000 and !ultra_instinct_boss):
 		var boss_inst : Area2D = boss_file.instantiate();
 		root_node.add_child(boss_inst);
 		boss_inst.initialize(player);

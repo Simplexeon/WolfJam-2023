@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfv1d71muq0at"
-path="res://.godot/imported/AveIncensa.icon.png-d7bbbe7737380f66e97512430756f3c7.ctex"
+path="res://.godot/imported/AveIncensa.icon.png-3c606e9489dd0415ff12024486d5e344.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Exports/Ver 1.7/AveIncensa.icon.png"
-dest_files=["res://.godot/imported/AveIncensa.icon.png-d7bbbe7737380f66e97512430756f3c7.ctex"]
+source_file="res://Exports/Ver 1.7 GAME JAM RELEASE/AveIncensa.icon.png"
+dest_files=["res://.godot/imported/AveIncensa.icon.png-3c606e9489dd0415ff12024486d5e344.ctex"]
 
 [params]
 
