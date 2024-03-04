@@ -3,9 +3,11 @@ class_name MegaPyre
 
 var current_scale : float = 0.5;
 var max_scale : float = 2.5;
-var dim_rate : float = 0.04;
-var pyre_increase_rate : float = 1.05;
+var dim_rate : float = 0.02;
+var pyre_increase_rate : float = .02;
 var fade_target : float = 0.0
+
+var enemies : int = 0;
 
 # Components
 @onready var light : PointLight2D = $PointLight2D;
@@ -49,8 +51,11 @@ func _physics_process(delta: float) -> void:
 			text_fade_timer = 0.0;
 			reverse_shrink = true;
 	
-	light.texture_scale = lerp(0.0, max_scale, current_scale);
-	current_scale -= dim_rate * delta;
+	var ns : float = lerp(0.0, max_scale, current_scale);
+	light.scale = Vector2(ns, ns);
+	area_2d.scale = Vector2(ns, ns);
+	current_scale -= dim_rate * enemies * delta;
+	
 	audio_player.max_distance = 200 * current_scale;
 	if(current_scale < 0.05):
 		var next_pyre : Node2D = load("res://Objects/megaPyre.tscn").instantiate();
@@ -67,7 +72,8 @@ func _fed_fire() -> void:
 		label_timer.start();
 		shrinking = true;
 		text = true;
-	current_scale = current_scale * pyre_increase_rate;
+	current_scale = current_scale + pyre_increase_rate;
+	enemies = max(enemies - 1, 0);
 
 
 func _on_audio_stream_player_2d_finished() -> void:

@@ -8,7 +8,7 @@
 [ext_resource type="FontFile" uid="uid://c785noxdvf55c" path="res://Art/QuinqueFive.ttf" id="6_exhnm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cyc8k"]
-radius = 310.002
+radius = 132.061
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bvugv"]
 light_mode = 1
@@ -20,6 +20,8 @@ script = ExtResource("1_p7chx")
 texture = ExtResource("2_7goey")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
 energy = 0.5
 shadow_enabled = true
 shadow_item_cull_mask = 3

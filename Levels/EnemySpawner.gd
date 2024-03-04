@@ -75,14 +75,13 @@ func _physics_process(delta: float) -> void:
 		root_node.add_child(boss_inst);
 		boss_inst.initialize(player);
 		boss_inst.global_position = Vector2(562, -420);
-		boss_spawned = true;
+		ultra_instinct_boss = true;
 		points = 0;
 		
 		boss_inst = boss_file.instantiate();
 		root_node.add_child(boss_inst);
 		boss_inst.initialize(player);
 		boss_inst.global_position = Vector2(562, 1320);
-		boss_spawned = true;
 
 
 func create_enemy(type : EnemyType, pos_id : int) -> void:
