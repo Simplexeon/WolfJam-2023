@@ -117,7 +117,7 @@ script = ExtResource("2_lh26t")
 player = NodePath("../PlayerCharacter")
 smoothing = 0.96
 cam_speed = 4.0
-base_screen_shake = 0.5
+base_screen_shake = 0.2
 shooting_screen_shake = 5.0
 screen_shake_decay = 0.05
 

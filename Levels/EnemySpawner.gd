@@ -8,9 +8,11 @@ var tilemap : TileMap;
 var spawn_count : int;
 var points : float = 6.0;
 var points_per_sec : float = 0.3;
-var point_growth : float = 0.01;
-var basic_cost : int = 1;
-var flanker_cost : int = 2;
+var point_growth : float = 0.012;
+var queued_basics : int = 0;
+var queued_bigs : int = 0;
+var new_wave_timer : float = 1.5;
+
 
 # Point shop vars
 var wave_points_minimum : float = 6.0;
@@ -50,9 +52,14 @@ func _game_ready(new_player : CharacterBody2D, new_tilemap : TileMap) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	new_wave_timer = maxf(new_wave_timer - delta, 0);
+	if(new_wave_timer <= 0):
+		spawn_wave();
+		new_wave_timer = 1.5;
 	points += points_per_sec * delta;
 	points_per_sec = points_per_sec * (1 + point_growth * delta);
-	wave_points_maximum += (player.score / 5000) * delta;
+	wave_points_minimum += (player.score / 10000) * delta;
+	wave_points_maximum += (player.score / 10000) * delta;
 	calculate_spawn();
 	
 	if(player.score >= 15000 and !boss_spawned):
@@ -61,6 +68,7 @@ func _physics_process(delta: float) -> void:
 		boss_inst.initialize(player);
 		boss_inst.global_position = Vector2(562, -420);
 		boss_spawned = true;
+		points = 0;
 	
 	if(player.score >= 30000 and !ultra_instinct_boss):
 		var boss_inst : Area2D = boss_file.instantiate();
@@ -68,15 +76,16 @@ func _physics_process(delta: float) -> void:
 		boss_inst.initialize(player);
 		boss_inst.global_position = Vector2(562, -420);
 		boss_spawned = true;
+		points = 0;
 		
 		boss_inst = boss_file.instantiate();
 		root_node.add_child(boss_inst);
 		boss_inst.initialize(player);
-		boss_inst.global_position = Vector2(562, -420);
+		boss_inst.global_position = Vector2(562, 1320);
 		boss_spawned = true;
 
 
-func create_enemy(type : EnemyType) -> void:
+func create_enemy(type : EnemyType, pos_id : int) -> void:
 	var enemy_inst : CharacterBody2D;
 	match(type):
 		0:
@@ -84,19 +93,45 @@ func create_enemy(type : EnemyType) -> void:
 		1:
 			enemy_inst = big_enemy_file.instantiate();
 	root_node.add_child(enemy_inst);
-	enemy_inst.global_position = get_child(randi_range(0, spawn_count - 1)).global_position;
+	enemy_inst.global_position = get_child(pos_id).global_position;
 	enemy_inst.initialize(player, type);
 
 
 func calculate_spawn() -> void:
-	
 	if(points > next_wave_points):
 		while(points > 0):
 			if(points > 4 and randf() > .75):
-				create_enemy(EnemyType.BIG);
+				queued_bigs += 1;
 				points -= 4;
 				continue;
-			create_enemy(EnemyType.BASIC);
+			queued_basics += 1;
 			points -= 1;
 		
 		next_wave_points = randi_range(int(wave_points_minimum), int(wave_points_maximum));
+
+
+func spawn_wave() -> void:
+	var places : Array[int] = [];
+	places.resize(get_child_count());
+	
+	var i : int = 0;
+	while(i < places.size()):
+		places[i] = i;
+		i += 1;
+	
+	var spawned : int = 0;
+	while(spawned <= places.size()):
+		while(queued_basics > 0 and places.size() >= 1):
+			var spawn_index : int = randi_range(0, places.size() - 1);
+			create_enemy(EnemyType.BASIC, spawn_index);
+			places.remove_at(spawn_index);
+			queued_basics -= 1;
+			spawned += 1;
+		while(queued_bigs > 0 and places.size() >= 1):
+			var spawn_index : int = randi_range(0, places.size() - 1);
+			create_enemy(EnemyType.BIG, spawn_index);
+			places.remove_at(spawn_index);
+			queued_bigs -= 1;
+			spawned += 1;
+		break;
+	

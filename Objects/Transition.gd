@@ -32,9 +32,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	timer += animation_speed * delta;
-	frame = int(timer);
-	if(int(timer) == final_frame):
+	if(int(timer) >= final_frame):
 		if(next_scene != "none"):
 			get_tree().change_scene_to_file(next_scene);
 		else:
 			queue_free();
+		return;
+	frame = int(timer);
+	

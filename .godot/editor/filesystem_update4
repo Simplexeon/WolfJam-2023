@@ -1,8 +1,11 @@
 res://Levels/main.tscn
 res://Levels/EnemySpawner.gd
-res://Objects/megaPyre.gd
 res://Player/player_character.tscn
 res://Objects/megaPyre.tscn
 res://Enemies/BigEnemy.tscn
 res://Levels/TitleScreen.tscn
 res://Levels/Game Over.tscn
+res://Objects/Transition.gd
+res://Enemies/Boss.tscn
+res://Enemies/Boss.gd
+res://Levels/Camera2D.gd

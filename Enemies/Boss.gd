@@ -11,7 +11,6 @@ signal died(death_pos : Vector2);
 
 
 # Components
-@onready var sprite : Sprite2D = $Sprite2D;
 @onready var animator : AnimationPlayer = $Sprite/AnimationPlayer;
 var player : Player;
 
