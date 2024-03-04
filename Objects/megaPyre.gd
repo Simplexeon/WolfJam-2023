@@ -73,7 +73,6 @@ func _fed_fire() -> void:
 		shrinking = true;
 		text = true;
 	current_scale = current_scale + pyre_increase_rate;
-	enemies = max(enemies - 1, 0);
 
 
 func _on_audio_stream_player_2d_finished() -> void:

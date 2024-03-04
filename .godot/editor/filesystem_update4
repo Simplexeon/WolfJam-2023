@@ -1,9 +1,10 @@
-res://Objects/megaPyre.tscn
-res://Objects/megaPyre.gd
-res://Objects/Area2D.gd
 res://Levels/main.tscn
+res://Objects/Area2D.gd
 res://Player/player_character.tscn
+res://Objects/megaPyre.tscn
 res://Levels/TitleScreen.tscn
 res://Levels/Game Over.tscn
 res://Enemies/Boss.tscn
-res://Levels/EnemySpawner.gd
+res://Objects/megaPyre.gd
+res://Objects/FireSiphonEffect.tscn
+res://Objects/FireSiphonEffect.gd
