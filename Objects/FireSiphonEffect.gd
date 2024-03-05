@@ -15,7 +15,7 @@ var target_dist : float = 0;
 
 func initialize(spawn_pos : Vector2, pyre : MegaPyre) -> void:
 	global_position = spawn_pos;
-	var target_vector : Vector2 = (pyre.global_position - global_position);
+	var target_vector : Vector2 = (pyre.global_position - spawn_pos);
 	target_dir = target_vector.normalized();
 	target_dist = target_vector.length();
 
