@@ -49,7 +49,7 @@ color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 
 [node name="PlayerCharacter" parent="." node_paths=PackedStringArray("ScoreDisplay", "Camera", "Crosshair") instance=ExtResource("4_h0qhc")]
 z_index = 1
-position = Vector2(919, 406)
+position = Vector2(837, 369)
 Speed = 130.0
 KillScore = 100
 TimeScore = 10
