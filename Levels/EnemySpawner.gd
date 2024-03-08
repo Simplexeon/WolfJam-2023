@@ -8,15 +8,15 @@ var tilemap : TileMap;
 var spawn_count : int;
 var points : float = 6.0;
 var points_per_sec : float = 0.3;
-var point_growth : float = 0.012;
+var point_growth : float = 0.001;
 var queued_basics : int = 0;
 var queued_bigs : int = 0;
 var new_wave_timer : float = 1.5;
 
 
 # Point shop vars
-var wave_points_minimum : float = 6.0;
-var wave_points_maximum : float = 6.0;
+var wave_points_minimum : float = 2.0;
+var wave_points_maximum : float = 3.0;
 var next_wave_points : int = 0;
 
 
@@ -56,13 +56,14 @@ func _physics_process(delta: float) -> void:
 	if(new_wave_timer <= 0):
 		spawn_wave();
 		new_wave_timer = 1.5;
+	
 	points += points_per_sec * delta;
-	points_per_sec = points_per_sec * (1 + point_growth * delta);
-	wave_points_minimum += (player.score / 10000) * delta;
-	wave_points_maximum += (player.score / 10000) * delta;
+	points_per_sec += (point_growth + (float(player.score) / float(1500000))) * delta;
+	wave_points_minimum += (float(player.score) / float(100000)) * delta;
+	wave_points_maximum += (float(player.score) / float(80000)) * delta;
 	calculate_spawn();
 	
-	if(player.score >= 15000 and !boss_spawned):
+	if(player.score >= 20000 and !boss_spawned):
 		var boss_inst : Area2D = boss_file.instantiate();
 		root_node.add_child(boss_inst);
 		boss_inst.initialize(player);
@@ -70,7 +71,7 @@ func _physics_process(delta: float) -> void:
 		boss_spawned = true;
 		points = 0;
 	
-	if(player.score >= 30000 and !ultra_instinct_boss):
+	if(player.score >= 35000 and !ultra_instinct_boss):
 		var boss_inst : Area2D = boss_file.instantiate();
 		root_node.add_child(boss_inst);
 		boss_inst.initialize(player);
@@ -103,8 +104,11 @@ func calculate_spawn() -> void:
 				queued_bigs += 1;
 				points -= 4;
 				continue;
-			queued_basics += 1;
-			points -= 1;
+			if(points > 1):
+				queued_basics += 1;
+				points -= 1;
+			else:
+				break;
 		
 		next_wave_points = randi_range(int(wave_points_minimum), int(wave_points_maximum));
 

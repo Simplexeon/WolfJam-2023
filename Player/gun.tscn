@@ -9,7 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://vtx2yfrcyefb" path="res://SFX/Reloadnew.wav" id="7_dm4ij"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l784x"]
-light_mode = 1
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_p6as6"]
 streams_count = 3

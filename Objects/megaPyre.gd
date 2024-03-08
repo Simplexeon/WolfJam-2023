@@ -3,8 +3,8 @@ class_name MegaPyre
 
 var current_scale : float = 0.5;
 var max_scale : float = 2.5;
-var dim_rate : float = 0.02;
-var pyre_increase_rate : float = .02;
+var dim_rate : float = 0.035;
+var pyre_increase_rate : float = .01;
 var fade_target : float = 0.0
 
 var enemies : int = 0;
